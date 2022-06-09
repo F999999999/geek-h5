@@ -1,4 +1,6 @@
-export interface RouterBody {
+import { RouteObject } from "react-router-dom";
+
+export interface RouterBody extends RouteObject {
   name?: string;
   path: string;
   component?: any;

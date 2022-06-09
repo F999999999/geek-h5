@@ -6,6 +6,7 @@ export const USER_FEATURE_KEY = "user";
 // 属性的初始值
 const initialState = {
   token: "",
+  refresh_token: "",
 };
 
 export const { actions, reducer: userReducer } = createSlice({
