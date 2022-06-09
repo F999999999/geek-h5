@@ -23,7 +23,7 @@
       }
 
       .login-item {
-        // 注意：因为 1px 边框样式使用了决定定位，所以，此处需要将设置为相对定位
+        // 注意：因为 1px 边框样式默认使用了绝对定位 所以此处需要将设置为相对定位
         position: relative;
         // 为该元素设置 1px 边框
         @include hairline(bottom, #f0f0f0);
