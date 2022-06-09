@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="初始化路由配置">
+    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="新增：antd-mobile 组件库">
       <change afterPath="$PROJECT_DIR$/src/components/RouterBeforeEach/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/craco.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/craco.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Layout/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +96,7 @@
       <option name="presentableId" value="Default" />
       <updated>1654587545542</updated>
       <workItem from="1654587548331" duration="15052000" />
-      <workItem from="1654736524545" duration="1556000" />
+      <workItem from="1654736524545" duration="1636000" />
     </task>
     <task id="LOCAL-00001" summary="初始化">
       <created>1654588677898</created>
@@ -116,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654603959260</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="新增：antd-mobile 组件库">
+      <created>1654738151701</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1654738151702</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,7 +140,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="初始化" />
     <MESSAGE value="初始化路由配置" />
-    <option name="LAST_COMMIT_MESSAGE" value="初始化路由配置" />
+    <MESSAGE value="新增：antd-mobile 组件库" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增：antd-mobile 组件库" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
