@@ -4,12 +4,16 @@ import "./index.scss";
 import App from "./App";
 import { ConfigProvider } from "antd-mobile";
 import zhCN from "antd-mobile/es/locales/zh-CN";
+import { Provider } from "react-redux";
+import { store } from "@/store";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  <ConfigProvider locale={zhCN}>
-    <App />
-  </ConfigProvider>
+  <Provider store={store}>
+    <ConfigProvider locale={zhCN}>
+      <App />
+    </ConfigProvider>
+  </Provider>
 );

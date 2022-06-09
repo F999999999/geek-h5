@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="新增：封装字体图标组件&amp;一些优化">
-      <change afterPath="$PROJECT_DIR$/src/components/RouterBeforeEach/index.jsx" afterDir="false" />
+    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="优化：antd-mobile 国际化配置">
+      <change afterPath="$PROJECT_DIR$/src/store/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/userSlice.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/route/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/route/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RouterBeforeEach/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RouterBeforeEach/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/NotFound/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/NotFound/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/route.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/route.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -100,7 +106,7 @@
       <workItem from="1654587548331" duration="15052000" />
       <workItem from="1654736524545" duration="2778000" />
       <workItem from="1654739329353" duration="101000" />
-      <workItem from="1654739454391" duration="705000" />
+      <workItem from="1654739454391" duration="4751000" />
     </task>
     <task id="LOCAL-00001" summary="初始化">
       <created>1654588677898</created>
@@ -137,7 +143,21 @@
       <option name="project" value="LOCAL" />
       <updated>1654739255684</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="完成：添加路由前置守卫">
+      <created>1654740242038</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1654740242038</updated>
+    </task>
+    <task id="LOCAL-00007" summary="优化：antd-mobile 国际化配置">
+      <created>1654740747713</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1654740747713</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,7 +181,9 @@
     <MESSAGE value="新增：antd-mobile 组件库" />
     <MESSAGE value="优化：配置px转vw工具用于适配移动端" />
     <MESSAGE value="新增：封装字体图标组件&amp;一些优化" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增：封装字体图标组件&amp;一些优化" />
+    <MESSAGE value="完成：添加路由前置守卫" />
+    <MESSAGE value="优化：antd-mobile 国际化配置" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化：antd-mobile 国际化配置" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
