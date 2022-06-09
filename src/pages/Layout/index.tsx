@@ -1,4 +1,5 @@
 import { Button } from "antd-mobile";
+import Icon from "@/components/Icon";
 
 const Layout = () => {
   return (
@@ -8,6 +9,7 @@ const Layout = () => {
         Solid
       </Button>
       <Button>Button</Button>
+      <Icon type={"iconbtn_like_sel"} />
     </div>
   );
 };

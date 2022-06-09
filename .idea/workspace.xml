@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="新增：antd-mobile 组件库">
+    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="优化：配置px转vw工具用于适配移动端">
+      <change afterPath="$PROJECT_DIR$/src/assets/styles/hairline.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Icon/index.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/RouterBeforeEach/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Layout/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -96,7 +101,7 @@
       <option name="presentableId" value="Default" />
       <updated>1654587545542</updated>
       <workItem from="1654587548331" duration="15052000" />
-      <workItem from="1654736524545" duration="1636000" />
+      <workItem from="1654736524545" duration="2632000" />
     </task>
     <task id="LOCAL-00001" summary="初始化">
       <created>1654588677898</created>
@@ -119,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654738151702</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="优化：配置px转vw工具用于适配移动端">
+      <created>1654738304069</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1654738304069</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,7 +153,8 @@
     <MESSAGE value="初始化" />
     <MESSAGE value="初始化路由配置" />
     <MESSAGE value="新增：antd-mobile 组件库" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增：antd-mobile 组件库" />
+    <MESSAGE value="优化：配置px转vw工具用于适配移动端" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化：配置px转vw工具用于适配移动端" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
