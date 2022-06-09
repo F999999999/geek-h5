@@ -4,24 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="完成：初始化配置 Redux Toolkit">
-      <change afterPath="$PROJECT_DIR$/.env.development" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.env.production" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/CustomRouter/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/types/user.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/auth.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/history.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/http.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/index.ts" afterDir="false" />
+    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="新增：css Module 的TS类型">
+      <change afterPath="$PROJECT_DIR$/src/pages/Login/index.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RouterBeforeEach/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RouterBeforeEach/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Layout/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/NotFound/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/NotFound/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/userSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/userSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/route.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/route.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +103,7 @@
       <workItem from="1654587548331" duration="15052000" />
       <workItem from="1654736524545" duration="2778000" />
       <workItem from="1654739329353" duration="101000" />
-      <workItem from="1654739454391" duration="14954000" />
+      <workItem from="1654739454391" duration="29123000" />
     </task>
     <task id="LOCAL-00001" summary="初始化">
       <created>1654588677898</created>
@@ -174,7 +161,35 @@
       <option name="project" value="LOCAL" />
       <updated>1654744291854</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="完成：封装 axios 请求和一些工具函数">
+      <created>1654764955315</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1654764955315</updated>
+    </task>
+    <task id="LOCAL-00010" summary="优化：封装路由懒加载组件">
+      <created>1654784508177</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1654784508177</updated>
+    </task>
+    <task id="LOCAL-00011" summary="修复：全局 history 封装的bug">
+      <created>1654784641831</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1654784641831</updated>
+    </task>
+    <task id="LOCAL-00012" summary="新增：css Module 的TS类型">
+      <created>1654784702626</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1654784702626</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,7 +216,11 @@
     <MESSAGE value="完成：添加路由前置守卫" />
     <MESSAGE value="优化：antd-mobile 国际化配置" />
     <MESSAGE value="完成：初始化配置 Redux Toolkit" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成：初始化配置 Redux Toolkit" />
+    <MESSAGE value="完成：封装 axios 请求和一些工具函数" />
+    <MESSAGE value="优化：封装路由懒加载组件" />
+    <MESSAGE value="修复：全局 history 封装的bug" />
+    <MESSAGE value="新增：css Module 的TS类型" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增：css Module 的TS类型" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
