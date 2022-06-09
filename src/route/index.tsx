@@ -5,12 +5,18 @@ import { useRoutes } from "react-router-dom";
 export const routes: RouterBody[] = [
   {
     path: "/",
-    component: lazy(() => import("@/pages/Layout")),
+    component: lazy(() => import("@/components/RouterBeforeEach")),
     children: [
       {
-        path: "/login",
-        component: lazy(() => import("@/pages/Login")),
-        title: "登录",
+        path: "/",
+        component: lazy(() => import("@/pages/Layout")),
+        children: [
+          {
+            path: "/login",
+            component: lazy(() => import("@/pages/Login")),
+            title: "登录",
+          },
+        ],
       },
     ],
   },
