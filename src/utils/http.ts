@@ -47,7 +47,7 @@ http.interceptors.response.use(
           clearTokenByLocalStorage();
           // 跳转到登录页面
           customHistory.push("/login", {
-            from: customHistory.location.pathname,
+            redirectURL: customHistory.location.pathname,
           });
         },
       });

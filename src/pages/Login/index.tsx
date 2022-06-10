@@ -3,13 +3,14 @@ import styles from "./index.module.scss";
 import { LoginForm } from "@/types/user";
 import { getMobileCode, login } from "@/store/userSlice";
 import { useAppDispatch } from "@/store";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { InputRef } from "antd-mobile/es/components/input";
 
 const Login = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   // from 表单控制实例
   const [form] = Form.useForm();
@@ -40,8 +41,12 @@ const Login = () => {
           content: "登录成功",
           duration: 600,
           afterClose: () => {
+            // 获取重定向路径
+            const redirectURL = (
+              location as { state: { redirectURL?: string } }
+            ).state.redirectURL;
             // 返回首页
-            navigate("/");
+            navigate(redirectURL || "/");
           },
         });
       })

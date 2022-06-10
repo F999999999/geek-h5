@@ -10,6 +10,7 @@ export const routes: RouterBody[] = [
       {
         path: "/",
         element: lazyLoad("pages/Layout"),
+        auth: true,
         children: [
           { index: true, element: <Navigate to={"/home/index"} /> },
           { path: "/home/index", element: lazyLoad("pages/Home") },
