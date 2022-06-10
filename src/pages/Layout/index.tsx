@@ -1,10 +1,12 @@
 import styles from "./index.module.scss";
 import { TabBar } from "antd-mobile";
 import Icon from "@/components/Icon";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 const Layout = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
   // 底部导航栏数据
   const tabs = [
     { path: "/home/index", icon: "iconbtn_home", text: "首页" },
@@ -12,12 +14,13 @@ const Layout = () => {
     { path: "/home/video", icon: "iconbtn_video", text: "视频" },
     { path: "/home/profile", icon: "iconbtn_mine", text: "我的" },
   ];
+
   return (
     <div className={styles.root}>
       {/* 内容 */}
       <Outlet />
       {/* 底部TabBar */}
-      <TabBar className="tab-bar">
+      <TabBar className="tab-bar" activeKey={location.pathname}>
         {tabs.map((item) => (
           <TabBar.Item
             key={item.path}
