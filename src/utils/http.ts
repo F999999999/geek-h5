@@ -35,7 +35,6 @@ http.interceptors.response.use(
         content: "网络繁忙，请稍后再试",
         duration: 1000,
       });
-      return Promise.reject(e);
     }
 
     if (e.response.status === 401) {
@@ -59,7 +58,7 @@ http.interceptors.response.use(
         window.location.pathname = "/login";
       }
     }
-    Promise.reject(e);
+    return Promise.reject(e);
   }
 );
 
