@@ -9,22 +9,19 @@ export const routes: RouterBody[] = [
     children: [
       {
         path: "/",
-        element: <Navigate to="/home" />,
-      },
-      {
-        path: "/home",
         element: lazyLoad("pages/Layout"),
+        children: [
+          { index: true, element: <Navigate to={"/home/index"} /> },
+          { path: "/home/index", element: lazyLoad("pages/Home") },
+          { path: "/home/question", element: lazyLoad("pages/Question") },
+          { path: "/home/video", element: lazyLoad("pages/Video") },
+          { path: "/home/profile", element: lazyLoad("pages/Profile") },
+        ],
       },
-      {
-        path: "/login",
-        element: lazyLoad("pages/Login"),
-      },
+      { path: "/login", element: lazyLoad("pages/Login") },
     ],
   },
-  {
-    path: "*",
-    element: lazyLoad("pages/NotFound"),
-  },
+  { path: "*", element: lazyLoad("pages/NotFound") },
 ];
 
 const AppRouter = () => {
