@@ -43,20 +43,14 @@ http.interceptors.response.use(
         content: "登录超时，请重新登录",
         duration: 1000,
         afterClose: () => {
+          // 清空 token
+          clearTokenByLocalStorage();
+          // 跳转到登录页面
           customHistory.push("/login", {
             from: customHistory.location.pathname,
           });
-          // 触发退出 action，将 token 等清除
-          // store.dispatch(logout());
         },
       });
-      // 清空 token
-      clearTokenByLocalStorage();
-      // 防止跳转login的时候接口才处理401
-      if (window.location.pathname !== "/login") {
-        // 跳转到登录页
-        window.location.pathname = "/login";
-      }
     }
     return Promise.reject(e);
   }
