@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {http, setTokenByLocalStorage} from "@/utils";
+import {getTokenByLocalStorage, http, setTokenByLocalStorage} from "@/utils";
 import {getMobileCodeParam, getMobileCodeResponse, LoginParams, LoginResponse, Token,} from "@/types/user";
 
 // slice 名称
@@ -9,22 +9,32 @@ export const USER_FEATURE_KEY = "user";
 export type userSliceState = Token;
 // 属性的初始值
 const initialState: userSliceState = {
-  token: "",
-  refresh_token: "",
+  token: getTokenByLocalStorage().token || "",
+  refresh_token: getTokenByLocalStorage().refresh_token || "",
 };
 
 // 获取手机验证码
 export const getMobileCode = createAsyncThunk<
   getMobileCodeResponse,
   getMobileCodeParam
->("user/getMobileCode", async (payload) => {
-  return await http.get(`/sms/codes/${payload}`);
+>("user/getMobileCode", async (payload, thunkAPI) => {
+  try {
+    return await http.get(`/sms/codes/${payload}`);
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e);
+  }
 });
 
 // 用户登录
 export const login = createAsyncThunk<LoginResponse, LoginParams>(
   "user/login",
-  (payload) => http.post("/authorizations", payload)
+  async (payload, thunkAPI) => {
+    try {
+      return await http.post("/authorizations", payload);
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e);
+    }
+  }
 );
 
 export const { actions, reducer: userReducer } = createSlice({
