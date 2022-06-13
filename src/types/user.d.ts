@@ -19,3 +19,17 @@ export type getMobileCodeResponse = { message: string; data: null };
 export type LoginParams = { mobile: string; code: string };
 // 登录接口的响应类型
 export type LoginResponse = Token;
+
+// 用户信息
+export type User = {
+  id: string;
+  name: string;
+  photo: string;
+  art_count: number;
+  follow_count: number;
+  fans_count: number;
+  like_count: number;
+};
+
+// 获取用户信息接口的响应类型
+export type getUserResponse = User;
