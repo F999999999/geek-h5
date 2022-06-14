@@ -60,11 +60,7 @@ http.interceptors.response.use(
         // 设置请求头 Authorization 使其携带新获取的 token
         oldReqConfig.headers.Authorization = "Basic " + res.token;
         // 请求重发
-        try {
-          return Promise.resolve(await http.request(oldReqConfig));
-        } catch (err) {
-          return Promise.reject(err);
-        }
+        return http.request(oldReqConfig);
       }
 
       // 续期token过期或无续期token 无法获取新的token 跳转到登录页面重新登录
