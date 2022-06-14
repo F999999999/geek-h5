@@ -48,10 +48,16 @@ export type UserProfile = {
 // 获取个人信息接口的响应类型
 export type GetUserProfileResponse = UserProfile;
 
-// 修改个人信息接口的参赛类型
+// 修改个人信息接口的参数类型
 export type UpdateUserProfileParam = {
   name?: string;
   gender?: string;
   birthday?: string;
   intro?: string;
 };
+
+// 更新个人头像接口的响应类型
+export type UpdateUserPhotoResponse = { id: string; photo: string };
+
+// 更新个人头像接口的参数类型
+export type UpdateUserPhotoParam = FormData;

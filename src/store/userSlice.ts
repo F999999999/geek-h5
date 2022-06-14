@@ -8,10 +8,12 @@ import {
   LoginParams,
   LoginResponse,
   Token,
+  UpdateUserPhotoParam,
+  UpdateUserPhotoResponse,
   UpdateUserProfileParam,
   UserInfo,
   UserProfile,
-} from "@/types/user";
+} from "@/types/user"; // slice 名称
 
 // slice 名称
 export const USER_FEATURE_KEY = "user";
@@ -107,6 +109,18 @@ export const updateUserProfile = createAsyncThunk<null, UpdateUserProfileParam>(
     }
   }
 );
+
+// 更新个人头像
+export const updateUserPhoto = createAsyncThunk<
+  UpdateUserPhotoResponse,
+  UpdateUserPhotoParam
+>("user/updateUserPhoto", async (payload, thunkAPI) => {
+  try {
+    return await http.patch("user/photo", payload);
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e);
+  }
+});
 
 export const { actions, reducer: userReducer } = createSlice({
   // name 属性用于指定 slice 的名称, 用于区分不同的 slice

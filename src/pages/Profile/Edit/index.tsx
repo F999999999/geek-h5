@@ -5,11 +5,12 @@ import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "@/store";
 import {
   getUserProfile,
+  updateUserPhoto,
   updateUserProfile,
   USER_FEATURE_KEY,
 } from "@/store/userSlice";
 import classNames from "classnames";
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import EditInput from "@/pages/Profile/Edit/components/EditInput";
 import EditList from "@/pages/Profile/Edit/components/EditList";
 
@@ -80,11 +81,17 @@ const ProfileEdit = () => {
     setListPopup({ type: "", visible: false });
   };
 
+  // 创建获取 file 的 ref 对象
+  const fileRef = useRef<HTMLInputElement>(null);
+
   // 提交修改
   const onUpdateProfile = async (
     type: InputPopup["type"] | ListPopup["type"],
     value: string
   ) => {
+    // 如果是修改头像则单独处理 触发 file 的 click 事件
+    if (type === "photo") return fileRef.current?.click();
+
     // 提交修改
     const result = await dispatch(updateUserProfile({ [type]: value }));
 
@@ -100,6 +107,29 @@ const ProfileEdit = () => {
     // 关闭弹层
     onInputHide();
     onListPopupHide();
+  };
+
+  // 修改头像
+  const onChangePhoto = async (e: ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files) {
+      return Toast.show({
+        content: "请选择要上传的头像",
+        duration: 1000,
+      });
+    }
+    const formData = new FormData();
+    formData.append("photo", e.target.files[0]);
+    // 更新头像
+    await dispatch(updateUserPhoto(formData));
+    // 重新获取个人信息
+    dispatch(getUserProfile());
+    // 关闭弹层
+    onListPopupHide();
+    //提示
+    Toast.show({
+      content: "上传成功",
+      duration: 600,
+    });
   };
 
   return (
@@ -135,6 +165,7 @@ const ProfileEdit = () => {
                 </span>
               }
               arrow
+              onClick={() => onListPopupShow("photo")}
             >
               头像
             </List.Item>
@@ -167,6 +198,14 @@ const ProfileEdit = () => {
               性别
             </List.Item>
           </List>
+
+          {/* 创建 input[type=file] 标签用于上传头像 */}
+          <input
+            ref={fileRef}
+            type="file"
+            style={{ display: "none" }}
+            onChange={onChangePhoto}
+          />
         </div>
       </div>
 
