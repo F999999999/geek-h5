@@ -1,6 +1,6 @@
 import styles from "./index.module.scss";
 
-import { List, NavBar, Popup, Toast } from "antd-mobile";
+import { DatePicker, List, NavBar, Popup, Toast } from "antd-mobile";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "@/store";
 import {
@@ -13,6 +13,7 @@ import classNames from "classnames";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 import EditInput from "@/pages/Profile/Edit/components/EditInput";
 import EditList from "@/pages/Profile/Edit/components/EditList";
+import dayjs from "dayjs";
 
 type InputPopup = {
   type: "" | "name" | "intro";
@@ -86,7 +87,7 @@ const ProfileEdit = () => {
 
   // 提交修改
   const onUpdateProfile = async (
-    type: InputPopup["type"] | ListPopup["type"],
+    type: InputPopup["type"] | ListPopup["type"] | "birthday",
     value: string
   ) => {
     // 如果是修改头像则单独处理 触发 file 的 click 事件
@@ -107,6 +108,17 @@ const ProfileEdit = () => {
     // 关闭弹层
     onInputHide();
     onListPopupHide();
+  };
+
+  // 生日日期选择器的展示或隐藏
+  const [showBirthday, setShowBirthday] = useState(false);
+
+  // 更新生日
+  const onUpdateBirthday = async (value: Date) => {
+    // 提交修改
+    await onUpdateProfile("birthday", dayjs(value).format("YYYY-MM-DD"));
+    // 关闭日期选择器
+    setShowBirthday(false);
   };
 
   // 修改头像
@@ -136,13 +148,7 @@ const ProfileEdit = () => {
     <div className={styles.root}>
       <div className="content">
         {/* 标题 */}
-        <NavBar
-          className="nav-bar"
-          onBack={() => navigate(-1)}
-          // style={{
-          //   '--border-bottom': '1px solid #F0F0F0'
-          // }}
-        >
+        <NavBar className="nav-bar" onBack={() => navigate(-1)}>
           个人信息
         </NavBar>
 
@@ -197,6 +203,13 @@ const ProfileEdit = () => {
             >
               性别
             </List.Item>
+            <List.Item
+              arrow
+              extra={birthday}
+              onClick={() => setShowBirthday(true)}
+            >
+              生日
+            </List.Item>
           </List>
 
           {/* 创建 input[type=file] 标签用于上传头像 */}
@@ -205,6 +218,16 @@ const ProfileEdit = () => {
             type="file"
             style={{ display: "none" }}
             onChange={onChangePhoto}
+          />
+          {/* 日期选择器 */}
+          <DatePicker
+            visible={showBirthday}
+            value={new Date(birthday)}
+            onCancel={() => setShowBirthday(false)}
+            onConfirm={onUpdateBirthday}
+            title="选择年月日"
+            min={new Date(1900, 0, 1, 0, 0, 0)}
+            max={new Date()}
           />
         </div>
       </div>

@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="完成：个人信息-修改性别">
+    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="Update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Profile/Edit/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/Edit/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/userSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/userSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/user.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/user.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/http.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/http.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +109,7 @@
       <workItem from="1654739329353" duration="101000" />
       <workItem from="1654739454391" duration="54193000" />
       <workItem from="1655176542196" duration="114000" />
-      <workItem from="1655176680179" duration="3615000" />
+      <workItem from="1655176680179" duration="8747000" />
     </task>
     <task id="LOCAL-00001" summary="初始化">
       <created>1654588677898</created>
@@ -308,7 +307,28 @@
       <option name="project" value="LOCAL" />
       <updated>1655177595332</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="完成：个人信息-修改头像">
+      <created>1655180368912</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1655180368912</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Update">
+      <created>1655180409139</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1655180409139</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Update">
+      <created>1655196253184</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1655196253184</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,7 +359,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="初始化" />
     <MESSAGE value="初始化路由配置" />
     <MESSAGE value="新增：antd-mobile 组件库" />
     <MESSAGE value="优化：配置px转vw工具用于适配移动端" />
@@ -362,9 +381,10 @@
     <MESSAGE value="优化：响应拦截器增加token续期并进行请求重发逻辑" />
     <MESSAGE value="修复：登录时没有重定向路径导致的报错" />
     <MESSAGE value="完成：个人信息-基础布局&amp;修改昵称和简介" />
-    <MESSAGE value="Update" />
     <MESSAGE value="完成：个人信息-修改性别" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成：个人信息-修改性别" />
+    <MESSAGE value="完成：个人信息-修改头像" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
