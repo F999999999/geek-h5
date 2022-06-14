@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="Update">
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/Edit/components/EditList/index.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/Edit/components/EditList/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Profile/Edit/components/EditInput/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/Edit/components/EditInput/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Profile/Edit/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/Edit/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +77,9 @@
       <recent name="D:\FullStack\Github\geek-h5\src\pages" />
       <recent name="D:\FullStack\Github\geek-h5\src\components" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\FullStack\Github\geek-h5\src\pages\Profile\Edit\components" />
+    </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
@@ -103,6 +108,8 @@
       <workItem from="1654736524545" duration="2778000" />
       <workItem from="1654739329353" duration="101000" />
       <workItem from="1654739454391" duration="54193000" />
+      <workItem from="1655176542196" duration="114000" />
+      <workItem from="1655176680179" duration="844000" />
     </task>
     <task id="LOCAL-00001" summary="初始化">
       <created>1654588677898</created>
@@ -286,7 +293,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655172661463</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Update">
+      <created>1655172734737</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1655172734737</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

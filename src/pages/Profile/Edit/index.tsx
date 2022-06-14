@@ -11,17 +11,22 @@ import {
 import classNames from "classnames";
 import { useEffect, useState } from "react";
 import EditInput from "@/pages/Profile/Edit/components/EditInput";
+import EditList from "@/pages/Profile/Edit/components/EditList";
 
 type InputPopup = {
   type: "" | "name" | "intro";
   value: string;
   visible: boolean;
 };
+type ListPopup = {
+  type: "" | "gender" | "photo";
+  visible: boolean;
+};
 
 const ProfileEdit = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { photo, name, intro } = useAppSelector(
+  const { photo, name, intro, gender, birthday } = useAppSelector(
     (state) => state[USER_FEATURE_KEY].profile
   );
 
@@ -30,7 +35,7 @@ const ProfileEdit = () => {
     dispatch(getUserProfile());
   }, [dispatch]);
 
-  // 控制修改昵称弹出层
+  // 控制修改昵称或简介弹出层
   const [inputPopup, setInputPopup] = useState<InputPopup>({
     // 编辑昵称或简介，如果是昵称，值为：'name'；如果是简介，值为：'intro'
     type: "",
@@ -56,19 +61,33 @@ const ProfileEdit = () => {
       visible: false,
     });
 
-  // 更新 昵称或简介
+  // 控制功能列表选择弹出层
+  const [listPopup, setListPopup] = useState<ListPopup>({
+    type: "",
+    visible: false,
+  });
+
+  // 打开功能列表选择弹出层
+  const onListPopupShow = (type: ListPopup["type"]) => {
+    setListPopup({
+      type,
+      visible: true,
+    });
+  };
+
+  // 关闭功能列表选择弹出层
+  const onListPopupHide = () => {
+    setListPopup({ type: "", visible: false });
+  };
+
+  // 提交修改
   const onUpdateProfile = async (
-    type: InputPopup["type"],
-    value: InputPopup["value"]
+    type: InputPopup["type"] | ListPopup["type"],
+    value: string
   ) => {
-    let result = null;
-    if (type === "name") {
-      // 修改昵称
-      result = await dispatch(updateUserProfile({ name: value }));
-    } else if (type === "intro") {
-      // 修改简介
-      result = await dispatch(updateUserProfile({ intro: value }));
-    }
+    // 提交修改
+    const result = await dispatch(updateUserProfile({ [type]: value }));
+
     if (result) {
       // 提示
       Toast.show({
@@ -78,8 +97,9 @@ const ProfileEdit = () => {
       // 重新获取个人信息
       dispatch(getUserProfile());
     }
-    // 关闭修改 昵称 或 简介 弹层
+    // 关闭弹层
     onInputHide();
+    onListPopupHide();
   };
 
   return (
@@ -137,6 +157,16 @@ const ProfileEdit = () => {
               简介
             </List.Item>
           </List>
+
+          <List className="profile-list">
+            <List.Item
+              arrow
+              extra={gender ? "女" : "男"}
+              onClick={() => onListPopupShow("gender")}
+            >
+              性别
+            </List.Item>
+          </List>
         </div>
       </div>
 
@@ -147,6 +177,15 @@ const ProfileEdit = () => {
           onUpdateProfile={onUpdateProfile}
           type={inputPopup.type}
           value={inputPopup.value}
+        />
+      </Popup>
+
+      {/* 修改头像或性别弹层 */}
+      <Popup visible={listPopup.visible} onMaskClick={onListPopupHide}>
+        <EditList
+          onClose={onListPopupHide}
+          type={listPopup.type}
+          onUpdateProfile={onUpdateProfile}
         />
       </Popup>
     </div>
