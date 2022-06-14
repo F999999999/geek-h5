@@ -1,5 +1,9 @@
 import axios from "axios";
-import { clearTokenByLocalStorage, getTokenByLocalStorage } from "@/utils/auth";
+import {
+  clearTokenByLocalStorage,
+  getTokenByLocalStorage,
+  setTokenByLocalStorage,
+} from "@/utils/auth";
 import { Toast } from "antd-mobile";
 import { customHistory } from "@/utils/history";
 
@@ -27,7 +31,7 @@ http.interceptors.response.use(
   (res) => {
     return res?.data?.data || res;
   },
-  (e) => {
+  async (e) => {
     // 响应失败时，会执行此处的回调函数
     if (!e.response) {
       // 网路超时
@@ -37,8 +41,33 @@ http.interceptors.response.use(
       });
     }
 
+    // token 过期，登录超时
     if (e.response.status === 401) {
-      // token 过期，登录超时
+      // 获取 续期token
+      const { refresh_token } = getTokenByLocalStorage();
+      // 判断是否有续期token
+      if (refresh_token) {
+        // 保存上次的请求数据
+        const oldReqConfig = e.response.config;
+        // 发送请求获取新的 token
+        const res: { token: string } = await http.put("/authorizations", null, {
+          headers: {
+            Authorization: "Basic " + refresh_token,
+          },
+        });
+        // 保存新的 token
+        setTokenByLocalStorage({ token: res.token, refresh_token });
+        // 设置请求头 Authorization 使其携带新获取的 token
+        oldReqConfig.headers.Authorization = "Basic " + res.token;
+        // 请求重发
+        try {
+          return Promise.resolve(await http.request(oldReqConfig));
+        } catch (err) {
+          return Promise.reject(err);
+        }
+      }
+
+      // 续期token过期或无续期token 无法获取新的token 跳转到登录页面重新登录
       Toast.show({
         content: "登录超时，请重新登录",
         duration: 1000,
