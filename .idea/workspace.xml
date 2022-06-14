@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="完成：个人信息-基础布局&amp;修改昵称和简介">
+    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="Update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Profile/Edit/components/EditInput/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/Edit/components/EditInput/index.tsx" afterDir="false" />
     </list>
@@ -279,7 +279,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655172177121</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Update">
+      <created>1655172661463</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1655172661463</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,7 +330,6 @@
     <MESSAGE value="修复：全局 history 封装的bug" />
     <MESSAGE value="新增：css Module 的TS类型" />
     <MESSAGE value="完成：登录页面布局" />
-    <MESSAGE value="Update" />
     <MESSAGE value="修复：响应拦截器bug" />
     <MESSAGE value="完成：登录功能" />
     <MESSAGE value="完成：页面布局&amp;底部Tab栏" />
@@ -334,7 +340,8 @@
     <MESSAGE value="优化：响应拦截器增加token续期并进行请求重发逻辑" />
     <MESSAGE value="修复：登录时没有重定向路径导致的报错" />
     <MESSAGE value="完成：个人信息-基础布局&amp;修改昵称和简介" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成：个人信息-基础布局&amp;修改昵称和简介" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

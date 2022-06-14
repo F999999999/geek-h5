@@ -21,6 +21,7 @@ const EditInput = ({ onClose, value, onUpdateProfile, type }: Props) => {
   // 创建变量，用来表示是否为修改昵称
   const isEditName = type === "name";
 
+  // 提交修改
   const onSave = () => {
     if (type !== "") onUpdateProfile(type, inputValue);
   };
