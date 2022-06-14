@@ -99,7 +99,7 @@ const Login = () => {
 
   return (
     <div className={styles.root}>
-      <NavBar></NavBar>
+      <NavBar onBack={() => navigate("/home")} />
 
       <div className="login-form">
         <h2 className="title">账号登录</h2>

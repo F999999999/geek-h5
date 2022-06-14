@@ -12,13 +12,16 @@ export const routes: RouterBody[] = [
       {
         path: "home",
         element: lazyLoad("pages/Layout"),
-        auth: true,
         children: [
           { index: true, element: <Navigate to={"/home/index"} /> },
           { path: "index", element: lazyLoad("pages/Home") },
           { path: "question", element: lazyLoad("pages/Question") },
           { path: "video", element: lazyLoad("pages/Video") },
-          { path: "profile", element: lazyLoad("pages/Profile") },
+          {
+            path: "profile",
+            element: lazyLoad("pages/Profile"),
+            auth: true,
+          },
         ],
       },
       {
