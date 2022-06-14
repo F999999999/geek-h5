@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="修复：路由跳转后选中不正确">
-      <change afterPath="$PROJECT_DIR$/src/pages/Profile/index.module.scss" afterDir="false" />
+    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="修复：登录时没有重定向路径导致的报错">
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/Edit/components/EditInput/index.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/Edit/components/EditInput/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/Edit/index.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Profile/Edit/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/route/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/route/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/userSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/userSlice.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/types/user.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/user.d.ts" afterDir="false" />
     </list>
@@ -20,8 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -254,7 +258,28 @@
       <option name="project" value="LOCAL" />
       <updated>1654869028334</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="完成：获取用户信息并渲染用户界面">
+      <created>1655080647532</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1655080647532</updated>
+    </task>
+    <task id="LOCAL-00023" summary="优化：响应拦截器增加token续期并进行请求重发逻辑">
+      <created>1655171095263</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1655171095263</updated>
+    </task>
+    <task id="LOCAL-00024" summary="修复：登录时没有重定向路径导致的报错">
+      <created>1655171216953</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1655171216953</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,7 +330,10 @@
     <MESSAGE value="优化：响应拦截器" />
     <MESSAGE value="新增：路由前置守卫增加用户身份认证" />
     <MESSAGE value="修复：路由跳转后选中不正确" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复：路由跳转后选中不正确" />
+    <MESSAGE value="完成：获取用户信息并渲染用户界面" />
+    <MESSAGE value="优化：响应拦截器增加token续期并进行请求重发逻辑" />
+    <MESSAGE value="修复：登录时没有重定向路径导致的报错" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复：登录时没有重定向路径导致的报错" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

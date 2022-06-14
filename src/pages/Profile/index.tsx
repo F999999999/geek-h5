@@ -9,8 +9,9 @@ const Profile = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { photo, name, art_count, follow_count, fans_count, like_count } =
-    useAppSelector((state) => state[USER_FEATURE_KEY].profile);
+    useAppSelector((state) => state[USER_FEATURE_KEY].userInfo);
 
+  // 获取用户信息
   useEffect(() => {
     dispatch(getUser());
   }, [dispatch]);

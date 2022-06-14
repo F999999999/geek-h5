@@ -1,27 +1,34 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {getTokenByLocalStorage, http, setTokenByLocalStorage} from "@/utils";
 import {
-  getMobileCodeParam,
-  getMobileCodeResponse,
-  getUserResponse,
+  GetMobileCodeParam,
+  GetMobileCodeResponse,
+  GetUserProfileResponse,
+  GetUserResponse,
   LoginParams,
   LoginResponse,
   Token,
-  User,
+  UpdateUserProfileParam,
+  UserInfo,
+  UserProfile,
 } from "@/types/user";
 
 // slice 名称
 export const USER_FEATURE_KEY = "user";
 
 // 用户切片状态类型
-export type UserSliceState = { token: Token; profile: User };
+export type UserSliceState = {
+  token: Token;
+  userInfo: UserInfo;
+  profile: UserProfile;
+};
 // 属性的初始值
 const initialState: UserSliceState = {
   token: {
     token: getTokenByLocalStorage().token || "",
     refresh_token: getTokenByLocalStorage().refresh_token || "",
   },
-  profile: {
+  userInfo: {
     art_count: 0,
     fans_count: 0,
     follow_count: 0,
@@ -30,12 +37,21 @@ const initialState: UserSliceState = {
     name: "",
     photo: "",
   },
+  profile: {
+    id: "",
+    photo: "",
+    name: "",
+    mobile: "",
+    gender: 0,
+    birthday: "",
+    intro: "",
+  },
 };
 
 // 获取手机验证码
 export const getMobileCode = createAsyncThunk<
-  getMobileCodeResponse,
-  getMobileCodeParam
+  GetMobileCodeResponse,
+  GetMobileCodeParam
 >("user/getMobileCode", async (payload, thunkAPI) => {
   try {
     return await http.get(`/sms/codes/${payload}`);
@@ -57,11 +73,35 @@ export const login = createAsyncThunk<LoginResponse, LoginParams>(
 );
 
 // 获取用户信息
-export const getUser = createAsyncThunk<getUserResponse>(
+export const getUser = createAsyncThunk<GetUserResponse>(
   "user/getUser",
   async (payload, thunkAPI) => {
     try {
       return await http.get("/user");
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e);
+    }
+  }
+);
+
+// 获取个人信息
+export const getUserProfile = createAsyncThunk<GetUserProfileResponse>(
+  "user/getUserProfile",
+  async (payload, thunkAPI) => {
+    try {
+      return await http.get("/user/profile");
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e);
+    }
+  }
+);
+
+// 更新个人信息
+export const updateUserProfile = createAsyncThunk<null, UpdateUserProfileParam>(
+  "user/updateUserProfile",
+  async (payload, thunkAPI) => {
+    try {
+      return await http.patch("user/profile", payload);
     } catch (e) {
       return thunkAPI.rejectWithValue(e);
     }
@@ -98,6 +138,11 @@ export const { actions, reducer: userReducer } = createSlice({
       // 获取用户信息
       .addCase(getUser.fulfilled, (state, action) => {
         console.log("getUser.fulfilled", action);
+        state.userInfo = action.payload;
+      })
+      // 获取个人信息
+      .addCase(getUserProfile.fulfilled, (state, action) => {
+        console.log("getUserProfile.fulfilled", action);
         state.profile = action.payload;
       });
   },

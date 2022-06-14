@@ -11,9 +11,9 @@ export type LoginForm = {
 };
 
 // 获取手机验证码接口的参数类型
-export type getMobileCodeParam = string;
+export type GetMobileCodeParam = string;
 // 获取手机验证码接口的响应类型
-export type getMobileCodeResponse = { message: string; data: null };
+export type GetMobileCodeResponse = { message: string; data: null };
 
 // 登录接口的参数类型
 export type LoginParams = { mobile: string; code: string };
@@ -21,7 +21,7 @@ export type LoginParams = { mobile: string; code: string };
 export type LoginResponse = Token;
 
 // 用户信息
-export type User = {
+export type UserInfo = {
   id: string;
   name: string;
   photo: string;
@@ -32,4 +32,26 @@ export type User = {
 };
 
 // 获取用户信息接口的响应类型
-export type getUserResponse = User;
+export type GetUserResponse = UserInfo;
+
+// 个人信息
+export type UserProfile = {
+  id: string;
+  photo: string;
+  name: string;
+  mobile: string;
+  gender: number;
+  birthday: string;
+  intro: string;
+};
+
+// 获取个人信息接口的响应类型
+export type GetUserProfileResponse = UserProfile;
+
+// 修改个人信息接口的参赛类型
+export type UpdateUserProfileParam = {
+  name?: string;
+  gender?: string;
+  birthday?: string;
+  intro?: string;
+};
