@@ -37,7 +37,7 @@ const RouterBeforeEach = () => {
         setAuth(true);
       }
     }
-  }, [location]);
+  }, [location, navigate]);
   return auth ? <Outlet /> : null;
 };
 export default RouterBeforeEach;

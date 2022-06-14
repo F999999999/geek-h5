@@ -30,8 +30,6 @@ export const routes: RouterBody[] = [
   { path: "*", element: lazyLoad("pages/NotFound") },
 ];
 
-const AppRouter = () => {
-  return useRoutes(routes);
-};
+const AppRouter = () => useRoutes(routes);
 
 export default AppRouter;
