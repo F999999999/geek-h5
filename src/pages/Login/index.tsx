@@ -43,8 +43,8 @@ const Login = () => {
           afterClose: () => {
             // 获取重定向路径
             const redirectURL = (
-              location as { state: { redirectURL?: string } }
-            ).state.redirectURL;
+              location as { state?: { redirectURL?: string } }
+            ).state?.redirectURL;
             // 返回首页
             navigate(redirectURL || "/");
           },
