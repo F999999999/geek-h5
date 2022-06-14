@@ -1,9 +1,18 @@
 import styles from "./index.module.scss";
 
-import { DatePicker, List, NavBar, Popup, Toast } from "antd-mobile";
+import {
+  Button,
+  DatePicker,
+  Dialog,
+  List,
+  NavBar,
+  Popup,
+  Toast,
+} from "antd-mobile";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "@/store";
 import {
+  clearToken,
   getUserProfile,
   updateUserPhoto,
   updateUserProfile,
@@ -144,6 +153,40 @@ const ProfileEdit = () => {
     });
   };
 
+  // 退出登录
+  const onLogout = () => {
+    Dialog.show({
+      title: "温馨提示",
+      content: "亲，您确定要退出吗？",
+      // 点击 actions 对应按钮时关闭
+      closeOnAction: true,
+      // 点击遮罩层关闭
+      closeOnMaskClick: true,
+      // actions 的数据类型是一个数组，并且如果要指定的两个按钮在同一行，需要在使用一个数组来包裹两个对象
+      actions: [
+        [
+          {
+            key: "cancel",
+            text: "取消",
+            style: {
+              color: "#999",
+            },
+          },
+          {
+            key: "confirm",
+            text: "确认",
+            onClick: () => {
+              // 清空 token
+              dispatch(clearToken());
+              // 跳转到登录页
+              navigate("/login");
+            },
+          },
+        ],
+      ],
+    });
+  };
+
   return (
     <div className={styles.root}>
       <div className="content">
@@ -229,6 +272,12 @@ const ProfileEdit = () => {
             min={new Date(1900, 0, 1, 0, 0, 0)}
             max={new Date()}
           />
+
+          <div className="logout">
+            <Button className="btn" onClick={onLogout}>
+              退出登录
+            </Button>
+          </div>
         </div>
       </div>
 

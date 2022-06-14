@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {getTokenByLocalStorage, http, setTokenByLocalStorage} from "@/utils";
+import {clearTokenByLocalStorage, getTokenByLocalStorage, http, setTokenByLocalStorage,} from "@/utils";
 import {
   GetMobileCodeParam,
   GetMobileCodeResponse,
@@ -134,6 +134,8 @@ export const { actions, reducer: userReducer } = createSlice({
       // 清空 state 中的 token
       state.token.token = "";
       state.token.refresh_token = "";
+      // 清空 localStorage 中的 token
+      clearTokenByLocalStorage();
     },
   },
   // 通过 extraReducers 配置项处理异步 action
