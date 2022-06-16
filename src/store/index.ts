@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer, { USER_FEATURE_KEY } from "@/store/userSlice";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import homeReducer, { HOME_FEATURE_KEY } from "@/store/homeSlice";
 
 export const store = configureStore({
   // 是否开启浏览器的 redux 开发者调试工具
@@ -13,6 +14,7 @@ export const store = configureStore({
   // 合并应用中的多个 reducer 函数, 组成最终的 Store 对象
   reducer: {
     [USER_FEATURE_KEY]: userReducer,
+    [HOME_FEATURE_KEY]: homeReducer,
   },
 });
 

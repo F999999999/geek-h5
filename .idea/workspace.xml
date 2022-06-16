@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="修复：个人信息-修改昵称和简介切换时默认值不更新">
+    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="优化：登录页面后退和路由鉴权修改">
+      <change afterPath="$PROJECT_DIR$/src/store/homeSlice.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/types/hoes.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/route/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/route/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/http.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/http.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +112,7 @@
       <workItem from="1654739329353" duration="101000" />
       <workItem from="1654739454391" duration="54193000" />
       <workItem from="1655176542196" duration="114000" />
-      <workItem from="1655176680179" duration="14224000" />
+      <workItem from="1655176680179" duration="36711000" />
     </task>
     <task id="LOCAL-00001" summary="初始化">
       <created>1654588677898</created>
@@ -355,7 +359,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655200991731</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="优化：登录页面后退和路由鉴权修改">
+      <created>1655217519259</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1655217519259</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,7 +397,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="完成：添加路由前置守卫" />
     <MESSAGE value="优化：antd-mobile 国际化配置" />
     <MESSAGE value="完成：初始化配置 Redux Toolkit" />
     <MESSAGE value="完成：封装 axios 请求和一些工具函数" />
@@ -411,7 +421,8 @@
     <MESSAGE value="完成：个人信息-退出登录" />
     <MESSAGE value="优化：个人信息-修改简介输入框的样式" />
     <MESSAGE value="修复：个人信息-修改昵称和简介切换时默认值不更新" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复：个人信息-修改昵称和简介切换时默认值不更新" />
+    <MESSAGE value="优化：登录页面后退和路由鉴权修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化：登录页面后退和路由鉴权修改" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
