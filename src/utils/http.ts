@@ -20,7 +20,7 @@ http.interceptors.request.use((config) => {
     const { token } = getTokenByLocalStorage();
     if (token) {
       // 使用 非空断言 来排除 headers 类型中的 undefined 类型
-      config.headers!.Authorization = "Basic " + token;
+      config.headers!.Authorization = `Basic ${token}`;
     }
   }
   return config;
@@ -48,19 +48,17 @@ http.interceptors.response.use(
       // 判断是否有续期token
       if (refresh_token) {
         // 保存上次的请求数据
-        const oldReqConfig = e.response.config;
+        const oldConfig = e.config;
         // 发送请求获取新的 token
         const res: { token: string } = await http.put("/authorizations", null, {
           headers: {
-            Authorization: "Basic " + refresh_token,
+            Authorization: `Basic ${refresh_token}`,
           },
         });
         // 保存新的 token
         setTokenByLocalStorage({ token: res.token, refresh_token });
-        // 设置请求头 Authorization 使其携带新获取的 token
-        oldReqConfig.headers.Authorization = "Basic " + res.token;
-        // 请求重发
-        return http.request(oldReqConfig);
+        // 重新发送上次未成功的请求
+        return http.request(oldConfig);
       }
 
       // 续期token过期或无续期token 无法获取新的token 跳转到登录页面重新登录

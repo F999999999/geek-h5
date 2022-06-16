@@ -27,6 +27,7 @@ export const routes: RouterBody[] = [
       {
         path: "profile",
         children: [{ path: "edit", element: lazyLoad("pages/Profile/Edit") }],
+        auth: true,
       },
     ],
   },
