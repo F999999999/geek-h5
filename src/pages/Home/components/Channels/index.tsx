@@ -3,8 +3,8 @@ import styles from "./index.module.scss";
 import classNames from "classnames";
 import { useEffect, useState } from "react";
 import Icon from "@/components/Icon";
-import { useAppSelector } from "@/store";
-import { HOME_FEATURE_KEY } from "@/store/homeSlice";
+import { useAppDispatch, useAppSelector } from "@/store";
+import { HOME_FEATURE_KEY, toggleChannel } from "@/store/homeSlice";
 import { http } from "@/utils";
 import { Channel, GetChannelResponse } from "@/types/hoes";
 import differenceBy from "lodash/differenceBy";
@@ -14,8 +14,10 @@ type Props = {
 };
 
 const Channels = ({ onClose }: Props) => {
-  // 用户频道列表
-  const { channels } = useAppSelector((state) => state[HOME_FEATURE_KEY]);
+  const dispatch = useAppDispatch();
+  const { channels, channelActiveKey } = useAppSelector(
+    (state) => state[HOME_FEATURE_KEY]
+  );
   // 推荐频道（可选频道）
   const [restChannels, setRestChannels] = useState<Channel[]>([]);
   useEffect(() => {
@@ -29,6 +31,18 @@ const Channels = ({ onClose }: Props) => {
   // 切换编辑状态
   const changeEdit = () => {
     setIsEdit(!isEdit);
+  };
+  // 切换频道
+  const onChannelSwitch = (channel: Channel) => {
+    // 判断是否处于编辑状态
+    if (isEdit) {
+      // 处于编辑状态 删除频道
+    } else {
+      // 不处于编辑状态 切换频道
+      dispatch(toggleChannel(channel.id));
+      // 关闭弹层
+      onClose();
+    }
   };
 
   return (
@@ -49,8 +63,19 @@ const Channels = ({ onClose }: Props) => {
           <div className="channel-list">
             {/* 选中时，添加类名 selected */}
             {channels.map((item) => (
-              <span key={item.id} className={classNames("channel-list-item")}>
+              <span
+                key={item.id}
+                className={classNames(
+                  "channel-list-item",
+                  channelActiveKey === item.id && "selected"
+                )}
+                onClick={() => onChannelSwitch(item)}
+              >
                 {item.name}
+                {/* 排除 推荐 以及 当前选中项的 删除的图标 */}
+                {item.id !== 0 && item.id !== channelActiveKey && (
+                  <Icon type="iconbtn_tag_close" />
+                )}
               </span>
             ))}
           </div>

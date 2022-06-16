@@ -6,6 +6,7 @@ import {
   getAllChannels,
   getUserChannel,
   HOME_FEATURE_KEY,
+  toggleChannel,
 } from "@/store/homeSlice";
 import { USER_FEATURE_KEY } from "@/store/userSlice";
 import Icon from "@/components/Icon";
@@ -15,7 +16,9 @@ import Channels from "@/pages/Home/components/Channels";
 const Home = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { channels } = useAppSelector((state) => state[HOME_FEATURE_KEY]);
+  const { channels, channelActiveKey } = useAppSelector(
+    (state) => state[HOME_FEATURE_KEY]
+  );
   const {
     token: { token },
   } = useAppSelector((state) => state[USER_FEATURE_KEY]);
@@ -26,6 +29,10 @@ const Home = () => {
   const onChannelShow = () => setChannelVisible(true);
   // 隐藏频道管理弹出层
   const onChannelHide = () => setChannelVisible(false);
+  // 切换频道
+  const onChannelSwitch = (key: string) => {
+    dispatch(toggleChannel(Number(key)));
+  };
 
   useEffect(() => {
     // 判断是否登录
@@ -40,7 +47,12 @@ const Home = () => {
 
   return (
     <div className={styles.root}>
-      <Tabs className="tabs" activeLineMode="fixed">
+      <Tabs
+        className="tabs"
+        activeLineMode="fixed"
+        activeKey={channelActiveKey + ""}
+        onChange={onChannelSwitch}
+      >
         {channels.map((item) => (
           <Tabs.Tab forceRender title={item.name} key={item.id}>
             {item.name}

@@ -1,4 +1,4 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {http} from "@/utils";
 import {Channel, GetChannelResponse} from "@/types/hoes";
 
@@ -11,10 +11,12 @@ const CHANNEL_KEY = "geek-channels";
 // 初始状态类型
 export type HomeState = {
   channels: Channel[];
+  channelActiveKey: Channel["id"];
 };
 // 初始状态
 export const initialState: HomeState = {
   channels: JSON.parse(localStorage.getItem(CHANNEL_KEY) || "[]"),
+  channelActiveKey: 0,
 };
 
 // 获取所有频道列表
@@ -44,7 +46,12 @@ export const getUserChannel = createAsyncThunk<GetChannelResponse>(
 export const { actions, reducer: homeReducer } = createSlice({
   name: HOME_FEATURE_KEY,
   initialState,
-  reducers: {},
+  reducers: {
+    // 切换频道
+    toggleChannel(state, action: PayloadAction<number>) {
+      state.channelActiveKey = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getUserChannel.fulfilled, (state, action) => {
@@ -69,5 +76,7 @@ export const { actions, reducer: homeReducer } = createSlice({
       });
   },
 });
+
+export const { toggleChannel } = actions;
 
 export default homeReducer;

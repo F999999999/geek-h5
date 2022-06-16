@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="完成：首页-频道列表渲染">
-      <change afterPath="$PROJECT_DIR$/src/pages/Home/components/Channels/index.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Home/components/Channels/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Home/index.module.scss" afterDir="false" />
+    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="完成：首页-频道管理渲染">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home/components/Channels/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/components/Channels/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Home/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/homeSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/homeSlice.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +109,7 @@
       <workItem from="1654739329353" duration="101000" />
       <workItem from="1654739454391" duration="54193000" />
       <workItem from="1655176542196" duration="114000" />
-      <workItem from="1655176680179" duration="41243000" />
+      <workItem from="1655176680179" duration="44084000" />
     </task>
     <task id="LOCAL-00001" summary="初始化">
       <created>1654588677898</created>
@@ -380,7 +377,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655339474985</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="完成：首页-频道管理渲染">
+      <created>1655343919011</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1655343919011</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -411,7 +415,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="完成：封装 axios 请求和一些工具函数" />
     <MESSAGE value="优化：封装路由懒加载组件" />
     <MESSAGE value="修复：全局 history 封装的bug" />
     <MESSAGE value="新增：css Module 的TS类型" />
@@ -436,7 +439,8 @@
     <MESSAGE value="优化：登录页面后退和路由鉴权修改" />
     <MESSAGE value="优化：无感刷新 token" />
     <MESSAGE value="完成：首页-频道列表渲染" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成：首页-频道列表渲染" />
+    <MESSAGE value="完成：首页-频道管理渲染" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成：首页-频道管理渲染" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
