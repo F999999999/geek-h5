@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="完成：首页-删除频道">
+    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="完成：首页-添加频道">
+      <change afterPath="$PROJECT_DIR$/src/components/ArticleItem/index.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ArticleItem/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Home/components/ArticleList/index.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Home/components/ArticleList/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home/components/Channels/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/components/Channels/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/homeSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/homeSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/hoes.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/home.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/home.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/home.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +82,8 @@
       <recent name="D:\FullStack\Github\geek-h5\src\components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\FullStack\Github\geek-h5\src\components" />
+      <recent name="D:\FullStack\Github\geek-h5\src\pages\Home\components" />
       <recent name="D:\FullStack\Github\geek-h5\src\pages\Profile\Edit\components" />
     </key>
   </component>
@@ -109,7 +115,7 @@
       <workItem from="1654739329353" duration="101000" />
       <workItem from="1654739454391" duration="54193000" />
       <workItem from="1655176542196" duration="114000" />
-      <workItem from="1655176680179" duration="48269000" />
+      <workItem from="1655176680179" duration="58289000" />
     </task>
     <task id="LOCAL-00001" summary="初始化">
       <created>1654588677898</created>
@@ -405,7 +411,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655349347487</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="完成：首页-添加频道">
+      <created>1655350958776</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1655350958776</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -436,7 +449,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="新增：css Module 的TS类型" />
     <MESSAGE value="完成：登录页面布局" />
     <MESSAGE value="修复：响应拦截器bug" />
     <MESSAGE value="完成：登录功能" />
@@ -461,7 +473,8 @@
     <MESSAGE value="完成：首页-切换频道" />
     <MESSAGE value="Update" />
     <MESSAGE value="完成：首页-删除频道" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成：首页-删除频道" />
+    <MESSAGE value="完成：首页-添加频道" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成：首页-添加频道" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

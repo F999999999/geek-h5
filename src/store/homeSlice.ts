@@ -3,9 +3,12 @@ import {http} from "@/utils";
 import {
   AddUserChannelParams,
   AddUserChannelResponse,
+  Articles,
   Channel,
   DelChannelParams,
   DelChannelResponse,
+  GetArticleListParams,
+  GetArticleListResponse,
   GetChannelResponse,
 } from "@/types/home";
 
@@ -17,13 +20,18 @@ export const CHANNEL_KEY = "geek-channels";
 
 // 初始状态类型
 export type HomeState = {
+  // 频道列表
   channels: Channel[];
+  // 当前选中的频道
   channelActiveKey: Channel["id"];
+  // 当前频道的文章列表
+  channelArticles: { [key in string]: Articles };
 };
 // 初始状态
 export const initialState: HomeState = {
   channels: JSON.parse(localStorage.getItem(CHANNEL_KEY) || "[]"),
   channelActiveKey: 0,
+  channelArticles: {},
 };
 
 // 获取所有频道列表
@@ -74,6 +82,30 @@ export const addUserChannel = createAsyncThunk<
   }
 });
 
+// 根据频道id获取文章列表
+export const getArticleListByChannelId = createAsyncThunk<
+  GetArticleListResponse,
+  GetArticleListParams
+>("home/getArticleListByChannelId", async (payload, thunkAPI) => {
+  try {
+    return await http.get("/articles", { params: payload });
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e);
+  }
+});
+
+// 获取更多文章
+export const getNewestArticleList = createAsyncThunk<
+  GetArticleListResponse,
+  GetArticleListParams
+>("home/getMoreArticles", async (payload, thunkAPI) => {
+  try {
+    return await http.get("/articles", { params: payload });
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e);
+  }
+});
+
 export const { actions, reducer: homeReducer } = createSlice({
   name: HOME_FEATURE_KEY,
   initialState,
@@ -85,6 +117,7 @@ export const { actions, reducer: homeReducer } = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      // 获取用户频道列表
       .addCase(getUserChannel.fulfilled, (state, action) => {
         console.log("getUserChannel.fulfilled", action);
         // 保存到 state 中
@@ -95,6 +128,7 @@ export const { actions, reducer: homeReducer } = createSlice({
           JSON.stringify(action.payload.channels)
         );
       })
+      // 获取所有频道列表
       .addCase(getAllChannels.fulfilled, (state, action) => {
         console.log("getAllChannel.fulfilled", action);
         // 保存到 state 中
@@ -104,6 +138,24 @@ export const { actions, reducer: homeReducer } = createSlice({
           CHANNEL_KEY,
           JSON.stringify(action.payload.channels)
         );
+      })
+      // 根据频道id获取文章列表
+      .addCase(getArticleListByChannelId.fulfilled, (state, action) => {
+        console.log("getArticleListByChannelId.fulfilled", action);
+        // 追加数据
+        state.channelArticles[state.channelActiveKey] = {
+          pre_timestamp: action.payload.pre_timestamp,
+          results: [
+            ...(state.channelArticles[state.channelActiveKey]?.results ?? []),
+            ...action.payload.results,
+          ],
+        };
+      })
+      // 获取更多文章
+      .addCase(getNewestArticleList.fulfilled, (state, action) => {
+        console.log("getNewestArticleList.fulfilled", action);
+        // 重置数据
+        state.channelArticles[state.channelActiveKey] = action.payload;
       });
   },
 });

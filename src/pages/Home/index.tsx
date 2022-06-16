@@ -12,6 +12,7 @@ import { USER_FEATURE_KEY } from "@/store/userSlice";
 import Icon from "@/components/Icon";
 import { useNavigate } from "react-router-dom";
 import Channels from "@/pages/Home/components/Channels";
+import ArticleList from "@/pages/Home/components/ArticleList";
 
 const Home = () => {
   const dispatch = useAppDispatch();
@@ -55,7 +56,7 @@ const Home = () => {
       >
         {channels.map((item) => (
           <Tabs.Tab forceRender title={item.name} key={item.id}>
-            {item.name}
+            <ArticleList channelId={item.id} />
           </Tabs.Tab>
         ))}
       </Tabs>
