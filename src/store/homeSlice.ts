@@ -1,12 +1,12 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {http} from "@/utils";
-import {Channel, GetChannelResponse} from "@/types/hoes";
+import {Channel, DelChannelParams, DelChannelResponse, GetChannelResponse,} from "@/types/hoes";
 
 // slice 名称
 export const HOME_FEATURE_KEY = "home";
 
 // 用户频道列表 key
-const CHANNEL_KEY = "geek-channels";
+export const CHANNEL_KEY = "geek-channels";
 
 // 初始状态类型
 export type HomeState = {
@@ -42,6 +42,18 @@ export const getUserChannel = createAsyncThunk<GetChannelResponse>(
     }
   }
 );
+
+// 删除频道
+export const delChannel = createAsyncThunk<
+  DelChannelResponse,
+  DelChannelParams
+>("home/delChannel", async (payload, thunkAPI) => {
+  try {
+    return await http.delete(`/user/channels/${payload}`);
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e);
+  }
+});
 
 export const { actions, reducer: homeReducer } = createSlice({
   name: HOME_FEATURE_KEY,

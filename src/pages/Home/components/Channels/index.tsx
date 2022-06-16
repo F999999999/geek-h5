@@ -4,10 +4,17 @@ import classNames from "classnames";
 import { useEffect, useState } from "react";
 import Icon from "@/components/Icon";
 import { useAppDispatch, useAppSelector } from "@/store";
-import { HOME_FEATURE_KEY, toggleChannel } from "@/store/homeSlice";
+import {
+  CHANNEL_KEY,
+  delChannel,
+  getUserChannel,
+  HOME_FEATURE_KEY,
+  toggleChannel,
+} from "@/store/homeSlice";
 import { http } from "@/utils";
 import { Channel, GetChannelResponse } from "@/types/hoes";
 import differenceBy from "lodash/differenceBy";
+import { USER_FEATURE_KEY } from "@/store/userSlice";
 
 type Props = {
   onClose: () => void;
@@ -15,6 +22,9 @@ type Props = {
 
 const Channels = ({ onClose }: Props) => {
   const dispatch = useAppDispatch();
+  const {
+    token: { token },
+  } = useAppSelector((state) => state[USER_FEATURE_KEY]);
   const { channels, channelActiveKey } = useAppSelector(
     (state) => state[HOME_FEATURE_KEY]
   );
@@ -29,14 +39,35 @@ const Channels = ({ onClose }: Props) => {
   // 是否为编辑状态
   const [isEdit, setIsEdit] = useState(false);
   // 切换编辑状态
-  const changeEdit = () => {
-    setIsEdit(!isEdit);
-  };
+  const changeEdit = () => setIsEdit(!isEdit);
+
   // 切换频道
   const onChannelSwitch = (channel: Channel) => {
     // 判断是否处于编辑状态
     if (isEdit) {
       // 处于编辑状态 删除频道
+      // 第一个标签不可删除
+      if (channel.id === 0) return;
+      // 删除数量小于等于 4 个不可删除
+      if (channels.length <= 4) return;
+      // 判断是否登录
+      if (token) {
+        // 已登录 删除线上数据
+        dispatch(delChannel(channel.id)).then(() => {
+          // 删除成功 重新获取频道数据
+          dispatch(getUserChannel());
+        });
+      } else {
+        // 未登录 删除本地数据
+        const localChannels = JSON.parse(
+          localStorage.getItem(CHANNEL_KEY) ?? "[]"
+        ) as Channel[];
+
+        localStorage.setItem(
+          CHANNEL_KEY,
+          JSON.stringify(localChannels.filter((item) => item.id !== channel.id))
+        );
+      }
     } else {
       // 不处于编辑状态 切换频道
       dispatch(toggleChannel(channel.id));
@@ -72,7 +103,7 @@ const Channels = ({ onClose }: Props) => {
                 onClick={() => onChannelSwitch(item)}
               >
                 {item.name}
-                {/* 排除 推荐 以及 当前选中项的 删除的图标 */}
+                {/* 排除 推荐 以及 当前选中项的 的删除图标 */}
                 {item.id !== 0 && item.id !== channelActiveKey && (
                   <Icon type="iconbtn_tag_close" />
                 )}
