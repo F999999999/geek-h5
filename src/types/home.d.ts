@@ -7,3 +7,8 @@ export type GetChannelResponse = { channels: Channel[] };
 export type DelChannelParams = Channel["id"];
 // 删除频道接口的响应类型
 export type DelChannelResponse = null;
+
+// 添加频道接口的参数类型
+export type AddUserChannelParams = { id: number; seq: number }[];
+// 添加频道接口的响应类型
+export type AddUserChannelResponse = null;

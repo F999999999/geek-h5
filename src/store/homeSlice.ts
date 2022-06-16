@@ -1,6 +1,13 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {http} from "@/utils";
-import {Channel, DelChannelParams, DelChannelResponse, GetChannelResponse,} from "@/types/hoes";
+import {
+  AddUserChannelParams,
+  AddUserChannelResponse,
+  Channel,
+  DelChannelParams,
+  DelChannelResponse,
+  GetChannelResponse,
+} from "@/types/home";
 
 // slice 名称
 export const HOME_FEATURE_KEY = "home";
@@ -50,6 +57,18 @@ export const delChannel = createAsyncThunk<
 >("home/delChannel", async (payload, thunkAPI) => {
   try {
     return await http.delete(`/user/channels/${payload}`);
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e);
+  }
+});
+
+// 添加频道
+export const addUserChannel = createAsyncThunk<
+  AddUserChannelResponse,
+  AddUserChannelParams
+>("home/addChannel", async (payload, thunkAPI) => {
+  try {
+    return await http.patch("/user/channels", { channels: payload });
   } catch (e) {
     return thunkAPI.rejectWithValue(e);
   }

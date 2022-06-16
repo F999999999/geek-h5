@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Icon from "@/components/Icon";
 import { useAppDispatch, useAppSelector } from "@/store";
 import {
+  addUserChannel,
   CHANNEL_KEY,
   delChannel,
   getUserChannel,
@@ -12,7 +13,7 @@ import {
   toggleChannel,
 } from "@/store/homeSlice";
 import { http } from "@/utils";
-import { Channel, GetChannelResponse } from "@/types/hoes";
+import { Channel, GetChannelResponse } from "@/types/home";
 import differenceBy from "lodash/differenceBy";
 import { USER_FEATURE_KEY } from "@/store/userSlice";
 
@@ -76,6 +77,29 @@ const Channels = ({ onClose }: Props) => {
     }
   };
 
+  // 添加频道
+  const onAddChannel = (channel: Channel) => {
+    // 判断是否登录
+    if (token) {
+      // 已登录 添加线上数据
+      dispatch(
+        addUserChannel([{ id: channel.id, seq: channels.length + 1 }])
+      ).then(() => {
+        // 添加成功 重新获取频道数据
+        dispatch(getUserChannel());
+      });
+    } else {
+      // 未登录 添加本地数据
+      const localChannels = JSON.parse(
+        localStorage.getItem(CHANNEL_KEY) ?? "[]"
+      ) as Channel[];
+      localStorage.setItem(
+        CHANNEL_KEY,
+        JSON.stringify([...localChannels, channel])
+      );
+    }
+  };
+
   return (
     <div className={styles.root}>
       <div className="channel-header">
@@ -88,7 +112,7 @@ const Channels = ({ onClose }: Props) => {
             <span className="channel-item-title">我的频道</span>
             <span className="channel-item-title-extra">点击进入频道</span>
             <span className="channel-item-edit" onClick={changeEdit}>
-              {isEdit ? "保存" : "编辑"}
+              {isEdit ? "退出编辑" : "编辑"}
             </span>
           </div>
           <div className="channel-list">
@@ -119,7 +143,11 @@ const Channels = ({ onClose }: Props) => {
           </div>
           <div className="channel-list">
             {restChannels.map((item) => (
-              <span className="channel-list-item" key={item.id}>
+              <span
+                className="channel-list-item"
+                key={item.id}
+                onClick={() => onAddChannel(item)}
+              >
                 + {item.name}
               </span>
             ))}
