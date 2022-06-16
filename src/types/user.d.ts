@@ -55,9 +55,10 @@ export type UpdateUserProfileParam = {
   birthday?: string;
   intro?: string;
 };
-
-// 更新个人头像接口的响应类型
-export type UpdateUserPhotoResponse = { id: string; photo: string };
+// 修改个人信息接口的响应类型
+export type UpdateUserProfileResponse = null;
 
 // 更新个人头像接口的参数类型
 export type UpdateUserPhotoParam = FormData;
+// 更新个人头像接口的响应类型
+export type UpdateUserPhotoResponse = { id: string; photo: string };

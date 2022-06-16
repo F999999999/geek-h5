@@ -11,6 +11,7 @@ import {
   UpdateUserPhotoParam,
   UpdateUserPhotoResponse,
   UpdateUserProfileParam,
+  UpdateUserProfileResponse,
   UserInfo,
   UserProfile,
 } from "@/types/user"; // slice 名称
@@ -99,16 +100,16 @@ export const getUserProfile = createAsyncThunk<GetUserProfileResponse>(
 );
 
 // 更新个人信息
-export const updateUserProfile = createAsyncThunk<null, UpdateUserProfileParam>(
-  "user/updateUserProfile",
-  async (payload, thunkAPI) => {
-    try {
-      return await http.patch("user/profile", payload);
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e);
-    }
+export const updateUserProfile = createAsyncThunk<
+  UpdateUserProfileResponse,
+  UpdateUserProfileParam
+>("user/updateUserProfile", async (payload, thunkAPI) => {
+  try {
+    return await http.patch("user/profile", payload);
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e);
   }
-);
+});
 
 // 更新个人头像
 export const updateUserPhoto = createAsyncThunk<
