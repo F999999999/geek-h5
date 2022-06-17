@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="完成：搜索页面渲染&amp;历史记录保存&amp;关键词联想">
+      <change afterPath="$PROJECT_DIR$/src/store/articleSlice.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/types/article.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Search/Result/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Search/Result/index.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Search/Result/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Search/Result/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/searchSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/searchSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/home.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/home.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/search.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/search.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Article/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Article/index.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Article/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Article/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,6 +118,8 @@
       <workItem from="1654739454391" duration="54193000" />
       <workItem from="1655176542196" duration="114000" />
       <workItem from="1655176680179" duration="77640000" />
+      <workItem from="1655451853884" duration="155000" />
+      <workItem from="1655452029285" duration="7100000" />
     </task>
     <task id="LOCAL-00001" summary="初始化">
       <created>1654588677898</created>
