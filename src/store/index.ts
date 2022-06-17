@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import userReducer, { USER_FEATURE_KEY } from "@/store/userSlice";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import homeReducer, { HOME_FEATURE_KEY } from "@/store/homeSlice";
+import searchReducer, { SEARCH_FEATURE_KEY } from "@/store/searchSlice";
 
 export const store = configureStore({
   // 是否开启浏览器的 redux 开发者调试工具
@@ -15,6 +16,7 @@ export const store = configureStore({
   reducer: {
     [USER_FEATURE_KEY]: userReducer,
     [HOME_FEATURE_KEY]: homeReducer,
+    [SEARCH_FEATURE_KEY]: searchReducer,
   },
 });
 

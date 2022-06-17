@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="完成：首页-文章列表渲染&amp;下拉加载和触底加载">
-      <change afterPath="$PROJECT_DIR$/src/pages/Article/index.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Article/index.tsx" afterDir="false" />
+    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="优化：无感更新token的体验">
+      <change afterPath="$PROJECT_DIR$/src/pages/Search/Result/index.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Search/Result/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Search/index.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Search/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/searchSlice.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/types/search.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/route/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/route/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +26,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -78,8 +85,10 @@
       <recent name="D:\FullStack\Github\geek-h5\src\components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\FullStack\Github\geek-h5\src\components" />
       <recent name="D:\FullStack\Github\geek-h5\src\pages\Home\components" />
+      <recent name="D:\FullStack\Github\geek-h5\src\pages\Home" />
+      <recent name="D:\FullStack\Github\geek-h5\src\pages" />
+      <recent name="D:\FullStack\Github\geek-h5\src\components" />
       <recent name="D:\FullStack\Github\geek-h5\src\pages\Profile\Edit\components" />
     </key>
   </component>
@@ -111,7 +120,7 @@
       <workItem from="1654739329353" duration="101000" />
       <workItem from="1654739454391" duration="54193000" />
       <workItem from="1655176542196" duration="114000" />
-      <workItem from="1655176680179" duration="59631000" />
+      <workItem from="1655176680179" duration="74632000" />
     </task>
     <task id="LOCAL-00001" summary="初始化">
       <created>1654588677898</created>
@@ -421,7 +430,21 @@
       <option name="project" value="LOCAL" />
       <updated>1655369965591</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="完成：首页-文章列表跳转到文章详情">
+      <created>1655370989838</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1655370989838</updated>
+    </task>
+    <task id="LOCAL-00046" summary="优化：无感更新token的体验">
+      <created>1655433720565</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1655433720565</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -452,8 +475,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="修复：响应拦截器bug" />
-    <MESSAGE value="完成：登录功能" />
     <MESSAGE value="完成：页面布局&amp;底部Tab栏" />
     <MESSAGE value="优化：响应拦截器" />
     <MESSAGE value="新增：路由前置守卫增加用户身份认证" />
@@ -477,7 +498,9 @@
     <MESSAGE value="完成：首页-删除频道" />
     <MESSAGE value="完成：首页-添加频道" />
     <MESSAGE value="完成：首页-文章列表渲染&amp;下拉加载和触底加载" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成：首页-文章列表渲染&amp;下拉加载和触底加载" />
+    <MESSAGE value="完成：首页-文章列表跳转到文章详情" />
+    <MESSAGE value="优化：无感更新token的体验" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化：无感更新token的体验" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
