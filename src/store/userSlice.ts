@@ -130,6 +130,13 @@ export const { actions, reducer: userReducer } = createSlice({
   initialState,
   // reducers 属性用于指定 slice 的 reducer 函数, 用于处理 action, 可以是一个函数, 在函数中可以访问到其他 slice 的 state
   reducers: {
+    // 设置 token
+    setToken: (state, action) => {
+      // 设置 state 中的 token
+      state.token = action.payload;
+      // 设置 localStorage 中的 token
+      setTokenByLocalStorage(action.payload);
+    },
     // 清空 token
     clearToken: (state) => {
       // 清空 state 中的 token
@@ -166,6 +173,6 @@ export const { actions, reducer: userReducer } = createSlice({
 });
 
 // actions: 对象类型，用于存储 action creator 函数
-export const { clearToken } = actions;
+export const { setToken, clearToken } = actions;
 
 export default userReducer;

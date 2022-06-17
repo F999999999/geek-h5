@@ -1,5 +1,5 @@
 import { useLayoutEffect, useState } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { Router } from "react-router-dom";
 
 const CustomRouter = ({ history, children, ...props }) => {
   const [state, setState] = useState({
@@ -10,14 +10,15 @@ const CustomRouter = ({ history, children, ...props }) => {
   useLayoutEffect(() => history.listen(setState), [history]);
 
   return (
-    <BrowserRouter
+    <Router
+      history={history}
       {...props}
       location={state.location}
       navigationType={state.action}
       navigator={history}
     >
       {children}
-    </BrowserRouter>
+    </Router>
   );
 };
 
