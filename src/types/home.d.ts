@@ -21,10 +21,7 @@ export type Articles = {
     aut_id: string;
     aut_name: string;
     comm_count: number;
-    cover: {
-      type: 0 | 1 | 3;
-      images: string[];
-    };
+    cover: { type: 0 | 1 | 3; images?: string[] };
     pubdate: string;
     title: string;
   }[];
