@@ -59,16 +59,6 @@ const Reply = ({ onClose, commentItem, onReplyThumbUp, articleId }: Props) => {
 
   // 对评论进行点赞
   const onThumbUp = async () => {
-    if (comment.is_liking) {
-      // 说明：当前是点赞的，此时，要取消点赞
-      await http.delete(`/comment/likings/${comment.com_id}`);
-    } else {
-      // 说明：当前是未点赞，此时，要点赞
-      await http.post("/comment/likings", {
-        target: comment.com_id,
-      });
-    }
-
     setComment({
       ...comment,
       is_liking: !comment.is_liking,
@@ -76,9 +66,37 @@ const Reply = ({ onClose, commentItem, onReplyThumbUp, articleId }: Props) => {
         ? comment.like_count - 1
         : comment.like_count + 1,
     });
-
     // 将修改后的评论数据，传递给父组件，然后，由父组件来修改该数据
     onReplyThumbUp(comment.com_id, comment.is_liking);
+  };
+
+  // 对评论的评论进行点赞
+  const onReplyCommentsThumbUp = async (
+    com_id: string,
+    is_liking: boolean,
+    like_count: number
+  ) => {
+    if (is_liking) {
+      setReply({
+        ...reply,
+        results: reply.results.map((item) =>
+          item.com_id === com_id
+            ? { ...item, is_liking: false, like_count: like_count - 1 }
+            : item
+        ),
+      });
+    } else {
+      setReply({
+        ...reply,
+        results: reply.results.map((item) =>
+          item.com_id === com_id
+            ? { ...item, is_liking: true, like_count: like_count + 1 }
+            : item
+        ),
+      });
+    }
+    // 将修改后的评论数据，传递给父组件，然后，由父组件来修改该数据
+    onReplyThumbUp(com_id, is_liking);
   };
 
   const onReplyPopupHide = () => setShowPopup(false);
@@ -126,7 +144,18 @@ const Reply = ({ onClose, commentItem, onReplyThumbUp, articleId }: Props) => {
           <div className="reply-header">全部回复</div>
           {reply.results.length > 0 ? (
             reply.results.map((item) => (
-              <CommentItem key={item.com_id} type="reply" {...item} />
+              <CommentItem
+                key={item.com_id}
+                type="reply"
+                onThumbUp={() =>
+                  onReplyCommentsThumbUp(
+                    item.com_id,
+                    item.is_liking,
+                    item.like_count
+                  )
+                }
+                {...item}
+              />
             ))
           ) : (
             <NoneComment />

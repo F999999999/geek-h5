@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="完成：文章详情-对评论内容进行点赞">
-      <change afterPath="$PROJECT_DIR$/src/pages/Article/components/Reply/index.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Article/components/Reply/index.tsx" afterDir="false" />
+    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="完成：文章详情-展示评论的回复&amp;对回复进行评论">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Article/components/CommentItem/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Article/components/CommentItem/index.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Article/components/Reply/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Article/components/Reply/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Article/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Article/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -117,14 +115,7 @@
       <workItem from="1655176680179" duration="77640000" />
       <workItem from="1655451853884" duration="155000" />
       <workItem from="1655452029285" duration="8074000" />
-      <workItem from="1655693795427" duration="13406000" />
-    </task>
-    <task id="LOCAL-00006" summary="完成：添加路由前置守卫">
-      <created>1654740242038</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1654740242038</updated>
+      <workItem from="1655693795427" duration="21490000" />
     </task>
     <task id="LOCAL-00007" summary="优化：antd-mobile 国际化配置">
       <created>1654740747713</created>
@@ -462,7 +453,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655713757432</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="完成：文章详情-展示评论的回复&amp;对回复进行评论">
+      <created>1655719503681</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1655719503681</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -493,7 +491,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="完成：个人信息-修改性别" />
     <MESSAGE value="完成：个人信息-修改头像" />
     <MESSAGE value="完成：个人信息-修改生日" />
     <MESSAGE value="完成：个人信息-退出登录" />
@@ -518,7 +515,8 @@
     <MESSAGE value="完成：文章详情-获取评论列表并渲染" />
     <MESSAGE value="完成：文章详情-发表评论" />
     <MESSAGE value="完成：文章详情-对评论内容进行点赞" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成：文章详情-对评论内容进行点赞" />
+    <MESSAGE value="完成：文章详情-展示评论的回复&amp;对回复进行评论" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成：文章详情-展示评论的回复&amp;对回复进行评论" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
