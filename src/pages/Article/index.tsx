@@ -14,9 +14,11 @@ import { useAppDispatch, useAppSelector } from "@/store";
 import {
   ARTICLE_FEATURE_KEY,
   collectArticle,
+  followAuthor,
   getArticle,
   likeArticle,
   uncollectArticle,
+  unfollowAuthor,
   unlikeArticle,
 } from "@/store/articleSlice";
 import classNames from "classnames";
@@ -47,6 +49,7 @@ const Article = () => {
       is_collected,
       attitude,
       art_id,
+      aut_id,
     },
   } = useAppSelector((state) => state[ARTICLE_FEATURE_KEY]);
 
@@ -127,7 +130,7 @@ const Article = () => {
     await dispatch(getArticle(art_id));
   };
 
-  // 点赞文章或取消点赞
+  // 点赞或取消点赞文章
   const onLike = async () => {
     if (attitude === 1) {
       // 取消点赞
@@ -138,6 +141,22 @@ const Article = () => {
     }
     Toast.show({
       content: attitude === 1 ? "已取消点赞" : "已点赞",
+      duration: 800,
+    });
+    await dispatch(getArticle(art_id));
+  };
+
+  // 关注或取消关注作者
+  const onFollowAuthor = async () => {
+    if (is_followed) {
+      // 取消关注
+      await dispatch(unfollowAuthor({ target: aut_id }));
+    } else {
+      // 关注
+      await dispatch(followAuthor({ target: aut_id }));
+    }
+    Toast.show({
+      content: is_followed ? "已取消关注" : "已关注",
       duration: 800,
     });
     await dispatch(getArticle(art_id));
@@ -168,6 +187,7 @@ const Article = () => {
               <span className="name">{aut_name}</span>
               <span
                 className={classNames("follow", is_followed ? "followed" : "")}
+                onClick={onFollowAuthor}
               >
                 {is_followed ? "已关注" : "关注"}
               </span>
@@ -221,6 +241,7 @@ const Article = () => {
               <span className="name">{aut_name}</span>
               <span
                 className={classNames("follow", is_followed ? "followed" : "")}
+                onClick={onFollowAuthor}
               >
                 {is_followed ? "已关注" : "关注"}
               </span>

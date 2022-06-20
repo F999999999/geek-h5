@@ -4,12 +4,16 @@ import {
   ArticleDetail,
   CollectArticleParams,
   CollectArticleResponse,
+  FollowAuthorParams,
+  FollowAuthorResponse,
   GetArticleDetailParams,
   GetArticleDetailResponse,
   LikeArticleParams,
   LikeArticleResponse,
   UncollectArticleParams,
   UncollectArticleResponse,
+  UnfollowAuthorParams,
+  UnfollowAuthorResponse,
   UnlikeArticleParams,
   UnlikeArticleResponse,
 } from "@/types/article";
@@ -96,6 +100,30 @@ export const unlikeArticle = createAsyncThunk<
 >("article/unlikeArticle", async (payload, thunkAPI) => {
   try {
     return await http.delete(`article/likings/${payload.target}`);
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e);
+  }
+});
+
+// 关注作者
+export const followAuthor = createAsyncThunk<
+  FollowAuthorResponse,
+  FollowAuthorParams
+>("article/followAuthor", async (payload, thunkAPI) => {
+  try {
+    return await http.post("/user/followings", payload);
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e);
+  }
+});
+
+// 取消关注作者
+export const unfollowAuthor = createAsyncThunk<
+  UnfollowAuthorResponse,
+  UnfollowAuthorParams
+>("article/unfollowAuthor", async (payload, thunkAPI) => {
+  try {
+    return await http.delete(`/user/followings/${payload.target}`);
   } catch (e) {
     return thunkAPI.rejectWithValue(e);
   }

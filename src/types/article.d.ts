@@ -38,3 +38,13 @@ export type LikeArticleResponse = { target: string };
 export type UnlikeArticleParams = { target: string };
 // 取消点赞文章接口的响应类型
 export type UnlikeArticleResponse = null;
+
+// 关注作者接口的参数类型
+export type FollowAuthorParams = { target: string };
+// 关注作者接口的响应类型
+export type FollowAuthorResponse = { target: string };
+
+// 取消关注作者接口的参数类型
+export type UnfollowAuthorParams = { target: string };
+// 取消关注作者接口的响应类型
+export type UnfollowAuthorResponse = null;

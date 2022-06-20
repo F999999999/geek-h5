@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="完成：文章详情-导航栏展示作者信息">
-      <change afterPath="$PROJECT_DIR$/src/pages/Article/components/CommentFooter/index.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Article/components/CommentFooter/index.tsx" afterDir="false" />
+    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="完成：文章详情-底部评论栏渲染&amp;点赞收藏">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Article/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Article/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/articleSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/articleSlice.ts" afterDir="false" />
@@ -455,7 +453,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655474006630</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="完成：文章详情-底部评论栏渲染&amp;点赞收藏">
+      <created>1655688086625</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1655688086625</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -486,7 +491,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="新增：路由前置守卫增加用户身份认证" />
     <MESSAGE value="修复：路由跳转后选中不正确" />
     <MESSAGE value="完成：获取用户信息并渲染用户界面" />
     <MESSAGE value="优化：响应拦截器增加token续期并进行请求重发逻辑" />
@@ -511,7 +515,8 @@
     <MESSAGE value="优化：无感更新token的体验" />
     <MESSAGE value="完成：搜索页面渲染&amp;历史记录保存&amp;关键词联想" />
     <MESSAGE value="完成：文章详情-渲染文章详情" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成：文章详情-渲染文章详情" />
+    <MESSAGE value="完成：文章详情-底部评论栏渲染&amp;点赞收藏" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成：文章详情-底部评论栏渲染&amp;点赞收藏" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
