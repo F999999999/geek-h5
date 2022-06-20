@@ -1,4 +1,4 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {http} from "@/utils";
 import {
   AddArticleCommentParams,
@@ -17,12 +17,16 @@ import {
   GetMoreArticleCommentsResponse,
   LikeArticleParams,
   LikeArticleResponse,
+  LikeCommentParams,
+  LikeCommentResponse,
   UncollectArticleParams,
   UncollectArticleResponse,
   UnfollowAuthorParams,
   UnfollowAuthorResponse,
   UnlikeArticleParams,
   UnlikeArticleResponse,
+  UnlikeCommentParams,
+  UnlikeCommentResponse,
 } from "@/types/article";
 
 // slice 名称
@@ -180,10 +184,44 @@ export const addArticleComment = createAsyncThunk<
   }
 });
 
+// 点赞评论
+export const likeArticleComment = createAsyncThunk<
+  LikeCommentResponse,
+  LikeCommentParams
+>("article/likeArticleComment", async (payload, thunkAPI) => {
+  try {
+    return await http.post("/comment/likings/", payload);
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e);
+  }
+});
+
+// 取消点赞评论
+export const unlikeArticleComment = createAsyncThunk<
+  UnlikeCommentResponse,
+  UnlikeCommentParams
+>("article/unlikeArticleComment", async (payload, thunkAPI) => {
+  try {
+    return await http.delete(`/comment/likings/${payload.target}`);
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e);
+  }
+});
+
 export const { actions, reducer: articleReducer } = createSlice({
   name: ARTICLE_FEATURE_KEY,
   initialState,
-  reducers: {},
+  reducers: {
+    // 取消评论点赞
+    unlikeComment: (state, action: PayloadAction<string>) => {
+      state.articleComments.results.forEach((item) => {
+        if (item.com_id === action.payload) {
+          item.is_liking = false;
+          item.like_count--;
+        }
+      });
+    },
+  },
   extraReducers(builder) {
     builder
       // 获取文章详情
@@ -241,8 +279,20 @@ export const { actions, reducer: articleReducer } = createSlice({
       .addCase(addArticleComment.fulfilled, (state, action) => {
         console.log("addArticleComment.fulfilled", action);
         state.articleComments.results.unshift(action.payload.new_obj);
+      })
+      // 点赞评论
+      .addCase(likeArticleComment.fulfilled, (state, action) => {
+        console.log("likeArticleComment.fulfilled", action);
+        state.articleComments.results.forEach((item) => {
+          if (item.com_id === action.payload.target) {
+            item.is_liking = true;
+            item.like_count++;
+          }
+        });
       });
   },
 });
+
+export const { unlikeComment } = actions;
 
 export default articleReducer;

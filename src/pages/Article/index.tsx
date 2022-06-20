@@ -20,9 +20,12 @@ import {
   getArticleComments,
   getMoreArticleComments,
   likeArticle,
+  likeArticleComment,
   uncollectArticle,
   unfollowAuthor,
   unlikeArticle,
+  unlikeArticleComment,
+  unlikeComment,
 } from "@/store/articleSlice";
 import classNames from "classnames";
 import { InfiniteScroll, NavBar, Popup, Toast } from "antd-mobile";
@@ -182,6 +185,29 @@ const Article = () => {
     );
   };
 
+  // 隐藏文章评论弹出层
+  const onArticleCommentHide = () => setShowArticleComment(false);
+
+  // 发表评论
+  const onAddComment = async (value: string) => {
+    await dispatch(addArticleComment({ target: art_id, content: value }));
+    // 隐藏评论框
+    onArticleCommentHide();
+  };
+
+  // 对评论点赞
+  const onThumbUp = (com_id: string, is_liking: boolean) => {
+    if (is_liking) {
+      // 取消点赞
+      dispatch(unlikeArticleComment({ target: com_id })).then(() =>
+        dispatch(unlikeComment(com_id))
+      );
+    } else {
+      // 点赞
+      dispatch(likeArticleComment({ target: com_id }));
+    }
+  };
+
   // 渲染文章详情
   const renderArticle = () => {
     return (
@@ -240,7 +266,11 @@ const Article = () => {
           ) : (
             <div className="comment-list">
               {results.map((item) => (
-                <CommentItem {...item} key={item.com_id} />
+                <CommentItem
+                  {...item}
+                  key={item.com_id}
+                  onThumbUp={() => onThumbUp(item.com_id, item.is_liking)}
+                />
               ))}
 
               <InfiniteScroll hasMore={hasMore} loadMore={loadMoreComments} />
@@ -249,16 +279,6 @@ const Article = () => {
         </div>
       </div>
     );
-  };
-
-  // 隐藏文章评论弹出层
-  const onArticleCommentHide = () => setShowArticleComment(false);
-
-  // 发表评论
-  const onAddComment = async (value: string) => {
-    await dispatch(addArticleComment({ target: art_id, content: value }));
-    // 隐藏评论框
-    onArticleCommentHide();
   };
 
   // 渲染文章的评论弹出层

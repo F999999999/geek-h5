@@ -103,3 +103,13 @@ export type AddArticleCommentResponse = {
   art_id: string;
   new_obj: ArtComment;
 };
+
+// 评论点赞接口的参数类型
+export type LikeCommentParams = { target: string };
+// 评论点赞接口的响应类型
+export type LikeCommentResponse = { target: string };
+
+// 取消评论点赞接口的参数类型
+export type UnlikeCommentParams = { target: string };
+// 取消评论点赞接口的响应类型
+export type UnlikeCommentResponse = null;
