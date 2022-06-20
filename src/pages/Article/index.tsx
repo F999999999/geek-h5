@@ -16,15 +16,19 @@ import {
   collectArticle,
   followAuthor,
   getArticle,
+  getArticleComments,
+  getMoreArticleComments,
   likeArticle,
   uncollectArticle,
   unfollowAuthor,
   unlikeArticle,
 } from "@/store/articleSlice";
 import classNames from "classnames";
-import { NavBar, Toast } from "antd-mobile";
+import { InfiniteScroll, NavBar, Toast } from "antd-mobile";
 import Icon from "@/components/Icon";
 import CommentFooter from "@/pages/Article/components/CommentFooter";
+import NoneComment from "@/components/NoneComment";
+import CommentItem from "@/pages/Article/components/CommentItem";
 
 dayjs.extend(localizedFormat);
 
@@ -51,6 +55,7 @@ const Article = () => {
       art_id,
       aut_id,
     },
+    articleComments: { end_id, last_id, results },
   } = useAppSelector((state) => state[ARTICLE_FEATURE_KEY]);
 
   // 文章可滚动区域的 ref 对象
@@ -67,8 +72,13 @@ const Article = () => {
   const isShowComment = useRef(false);
 
   useEffect(() => {
-    params.id && dispatch(getArticle(params.id));
-    setLoading(false);
+    if (params.id) {
+      // 文章数据
+      dispatch(getArticle(params.id));
+      // 评论数据
+      dispatch(getArticleComments({ type: "a", source: params.id }));
+      setLoading(false);
+    }
   }, [dispatch, params.id]);
 
   // 导航栏中展示作者信息
@@ -158,6 +168,16 @@ const Article = () => {
     });
   };
 
+  // 是否需要加载更多评论
+  const hasMore = end_id !== last_id;
+  // 加载更多评论
+  const loadMoreComments = async () => {
+    if (!params.id || !last_id) return;
+    await dispatch(
+      getMoreArticleComments({ type: "a", source: params.id, offset: last_id })
+    );
+  };
+
   // 渲染文章详情
   const renderArticle = () => {
     return (
@@ -209,6 +229,19 @@ const Article = () => {
             <span>全部评论（{comm_count}）</span>
             <span>{like_count} 点赞</span>
           </div>
+
+          {/* 评论列表 */}
+          {results.length === 0 ? (
+            <NoneComment />
+          ) : (
+            <div className="comment-list">
+              {results.map((item) => (
+                <CommentItem {...item} key={item.com_id} />
+              ))}
+
+              <InfiniteScroll hasMore={hasMore} loadMore={loadMoreComments} />
+            </div>
+          )}
         </div>
       </div>
     );

@@ -23,7 +23,9 @@
   "include": [
     "src",
     // 配置 css Module 的TS类型
-    "typed-css.d.ts"
+    "typed-css.d.ts",
+    // 配置图片类型
+    "typed-image.d.ts"
   ],
   // 导入路径别名配置文件
   "extends": "./path.tsconfig.json"

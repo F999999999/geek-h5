@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="完成：文章详情-对作者的关注与取关">
+    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="优化：文章详情-点赞收藏关注">
+      <change afterPath="$PROJECT_DIR$/src/assets/images/none.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/NoneComment/index.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/NoneComment/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Article/components/CommentItem/index.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Article/components/CommentItem/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/typed-image.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Article/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Article/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/articleSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/articleSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/article.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/article.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +26,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -115,13 +123,7 @@
       <workItem from="1655176680179" duration="77640000" />
       <workItem from="1655451853884" duration="155000" />
       <workItem from="1655452029285" duration="8074000" />
-    </task>
-    <task id="LOCAL-00002" summary="初始化路由配置">
-      <created>1654603959260</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1654603959260</updated>
+      <workItem from="1655693795427" duration="2328000" />
     </task>
     <task id="LOCAL-00003" summary="新增：antd-mobile 组件库">
       <created>1654738151701</created>
@@ -459,7 +461,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655688973851</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="优化：文章详情-点赞收藏关注">
+      <created>1655691242160</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1655691242161</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -490,7 +499,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="完成：获取用户信息并渲染用户界面" />
     <MESSAGE value="优化：响应拦截器增加token续期并进行请求重发逻辑" />
     <MESSAGE value="修复：登录时没有重定向路径导致的报错" />
     <MESSAGE value="完成：个人信息-基础布局&amp;修改昵称和简介" />
@@ -515,7 +523,8 @@
     <MESSAGE value="完成：文章详情-渲染文章详情" />
     <MESSAGE value="完成：文章详情-底部评论栏渲染&amp;点赞收藏" />
     <MESSAGE value="完成：文章详情-对作者的关注与取关" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成：文章详情-对作者的关注与取关" />
+    <MESSAGE value="优化：文章详情-点赞收藏关注" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化：文章详情-点赞收藏关注" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

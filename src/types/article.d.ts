@@ -48,3 +48,43 @@ export type FollowAuthorResponse = { target: string };
 export type UnfollowAuthorParams = { target: string };
 // 取消关注作者接口的响应类型
 export type UnfollowAuthorResponse = null;
+
+// 评论项的类型
+export type ArtComment = {
+  com_id: string;
+  aut_id: string;
+  aut_name: string;
+  aut_photo: string;
+  like_count: number;
+  reply_count: number;
+  pubdate: string;
+  content: string;
+  is_liking: boolean;
+  is_followed: boolean;
+};
+// 文章评论的类型
+export type ArticleComment = {
+  total_count: number;
+  end_id: string | null;
+  last_id: string | null;
+  results: ArtComment[];
+};
+
+// 获取文章评论接口的参数类型
+export type GetArticleCommentsParams = {
+  type: "a" | "c";
+  source: string;
+  limit?: number;
+};
+// 获取文章评论接口的响应类型
+export type GetArticleCommentsResponse = ArticleComment;
+
+// 获取更多评论接口的参数类型
+export type GetMoreArticleCommentsParams = {
+  type: "a" | "c";
+  source: string;
+  offset: string;
+  limit?: number;
+};
+// 获取更多评论接口的响应类型
+export type GetMoreArticleCommentsResponse = ArticleComment;

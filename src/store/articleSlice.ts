@@ -1,13 +1,18 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {http} from "@/utils";
 import {
+  ArticleComment,
   ArticleDetail,
   CollectArticleParams,
   CollectArticleResponse,
   FollowAuthorParams,
   FollowAuthorResponse,
+  GetArticleCommentsParams,
+  GetArticleCommentsResponse,
   GetArticleDetailParams,
   GetArticleDetailResponse,
+  GetMoreArticleCommentsParams,
+  GetMoreArticleCommentsResponse,
   LikeArticleParams,
   LikeArticleResponse,
   UncollectArticleParams,
@@ -24,6 +29,7 @@ export const ARTICLE_FEATURE_KEY = "article";
 // 初始状态类型
 export type ArticleState = {
   articleDetail: ArticleDetail;
+  articleComments: ArticleComment;
 };
 // 初始状态
 export const initialState: ArticleState = {
@@ -42,6 +48,13 @@ export const initialState: ArticleState = {
     comm_count: 0,
     like_count: 0,
     read_count: 0,
+  },
+  // 文章评论
+  articleComments: {
+    total_count: 0,
+    end_id: null,
+    last_id: null,
+    results: [],
   },
 };
 
@@ -129,6 +142,30 @@ export const unfollowAuthor = createAsyncThunk<
   }
 });
 
+// 获取文章评论
+export const getArticleComments = createAsyncThunk<
+  GetArticleCommentsResponse,
+  GetArticleCommentsParams
+>("article/getArticleComments", async (payload, thunkAPI) => {
+  try {
+    return await http.get("/comments", { params: payload });
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e);
+  }
+});
+
+// 获取更多文章评论
+export const getMoreArticleComments = createAsyncThunk<
+  GetMoreArticleCommentsResponse,
+  GetMoreArticleCommentsParams
+>("article/getMoreArticleComments", async (payload, thunkAPI) => {
+  try {
+    return await http.get("/comments", { params: payload });
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e);
+  }
+});
+
 export const { actions, reducer: articleReducer } = createSlice({
   name: ARTICLE_FEATURE_KEY,
   initialState,
@@ -169,6 +206,22 @@ export const { actions, reducer: articleReducer } = createSlice({
       .addCase(unfollowAuthor.fulfilled, (state, action) => {
         console.log("unfollowAuthor.fulfilled", action);
         state.articleDetail.is_followed = false;
+      })
+      // 获取文章评论
+      .addCase(getArticleComments.fulfilled, (state, action) => {
+        console.log("getArticleComments.fulfilled", action);
+        state.articleComments = action.payload;
+      })
+      // 获取更多文章评论
+      .addCase(getMoreArticleComments.fulfilled, (state, action) => {
+        console.log("getMoreArticleComments.fulfilled", action);
+        state.articleComments = {
+          ...action.payload,
+          results: [
+            ...state.articleComments.results,
+            ...action.payload.results,
+          ],
+        };
       });
   },
 });
