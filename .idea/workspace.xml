@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="完成：文章详情-渲染文章详情">
+    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="完成：文章详情-导航栏展示作者信息">
+      <change afterPath="$PROJECT_DIR$/src/pages/Article/components/CommentFooter/index.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Article/components/CommentFooter/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Article/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Article/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/articleSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/articleSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/article.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/article.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +21,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>

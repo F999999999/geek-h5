@@ -1,6 +1,18 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {http} from "@/utils";
-import {ArticleDetail, GetArticleDetailParams, GetArticleDetailResponse,} from "@/types/article";
+import {
+  ArticleDetail,
+  CollectArticleParams,
+  CollectArticleResponse,
+  GetArticleDetailParams,
+  GetArticleDetailResponse,
+  LikeArticleParams,
+  LikeArticleResponse,
+  UncollectArticleParams,
+  UncollectArticleResponse,
+  UnlikeArticleParams,
+  UnlikeArticleResponse,
+} from "@/types/article";
 
 // slice 名称
 export const ARTICLE_FEATURE_KEY = "article";
@@ -41,15 +53,75 @@ export const getArticle = createAsyncThunk<
   }
 });
 
-export const { reducer: articleReducer } = createSlice({
+// 收藏文章
+export const collectArticle = createAsyncThunk<
+  CollectArticleResponse,
+  CollectArticleParams
+>("article/collectArticle", async (payload, thunkAPI) => {
+  try {
+    return await http.post("article/collections", payload);
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e);
+  }
+});
+
+// 取消收藏文章
+export const uncollectArticle = createAsyncThunk<
+  UncollectArticleResponse,
+  UncollectArticleParams
+>("article/uncollectArticle", async (payload, thunkAPI) => {
+  try {
+    return await http.delete(`article/collections/${payload.target}`);
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e);
+  }
+});
+
+// 点赞文章
+export const likeArticle = createAsyncThunk<
+  LikeArticleResponse,
+  LikeArticleParams
+>("article/likeArticle", async (payload, thunkAPI) => {
+  try {
+    return await http.post("article/likings", payload);
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e);
+  }
+});
+
+// 取消点赞文章
+export const unlikeArticle = createAsyncThunk<
+  UnlikeArticleResponse,
+  UnlikeArticleParams
+>("article/unlikeArticle", async (payload, thunkAPI) => {
+  try {
+    return await http.delete(`article/likings/${payload.target}`);
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e);
+  }
+});
+
+export const { actions, reducer: articleReducer } = createSlice({
   name: ARTICLE_FEATURE_KEY,
   initialState,
   reducers: {},
   extraReducers(builder) {
-    builder.addCase(getArticle.fulfilled, (state, action) => {
-      console.log("getArticle.fulfilled", action);
-      state.articleDetail = action.payload;
-    });
+    builder
+      // 获取文章详情
+      .addCase(getArticle.fulfilled, (state, action) => {
+        console.log("getArticle.fulfilled", action);
+        state.articleDetail = action.payload;
+      })
+      // 收藏文章
+      .addCase(collectArticle.fulfilled, (state, action) => {
+        console.log("collectArticle.fulfilled", action);
+        state.articleDetail.is_collected = true;
+      })
+      // 取消收藏文章
+      .addCase(collectArticle.rejected, (state, action) => {
+        console.log("collectArticle.rejected", action);
+        state.articleDetail.is_collected = false;
+      });
   },
 });
 

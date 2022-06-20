@@ -11,12 +11,23 @@ import { throttle } from "lodash";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/store";
-import { ARTICLE_FEATURE_KEY, getArticle } from "@/store/articleSlice";
+import {
+  ARTICLE_FEATURE_KEY,
+  collectArticle,
+  getArticle,
+  likeArticle,
+  uncollectArticle,
+  unlikeArticle,
+} from "@/store/articleSlice";
 import classNames from "classnames";
-import { NavBar } from "antd-mobile";
+import { NavBar, Toast } from "antd-mobile";
 import Icon from "@/components/Icon";
+import CommentFooter from "@/pages/Article/components/CommentFooter";
 
 dayjs.extend(localizedFormat);
+
+// 导航栏高度
+const NAV_BAR_HEIGTH = 45;
 
 const Article = () => {
   const params = useParams();
@@ -33,6 +44,9 @@ const Article = () => {
       pubdate,
       read_count,
       title,
+      is_collected,
+      attitude,
+      art_id,
     },
   } = useAppSelector((state) => state[ARTICLE_FEATURE_KEY]);
 
@@ -46,6 +60,8 @@ const Article = () => {
   const [loading, setLoading] = useState(true);
   // 导航栏中作者信息是否展示
   const [isShowNavAuthor, setIsShowNavAuthor] = useState(false);
+  // 当前是否展示评论信息的 ref
+  const isShowComment = useRef(false);
 
   // 文章数据
   useEffect(() => {
@@ -55,24 +71,77 @@ const Article = () => {
 
   // 导航栏中展示作者信息
   useEffect(() => {
+    // 判断是否正在加载文章数据
     if (loading) return;
-
     const wrapperDOM = wrapperRef.current!;
-
     // 创建一个节流函数
     const handleScroll = throttle(() => {
       const { bottom } = authorRef.current!.getBoundingClientRect();
-      // 44 是 NavBar 的高度，因为 NavBar 会挡住页面内容，所以，此处需要减去它的高度
-      if (bottom - 44 <= 0) {
-        setIsShowNavAuthor(true);
-      } else {
-        setIsShowNavAuthor(false);
-      }
+      // 减去 NavBar 的高度
+      bottom - NAV_BAR_HEIGTH <= 0
+        ? setIsShowNavAuthor(true)
+        : setIsShowNavAuthor(false);
     }, 200);
 
     wrapperDOM.addEventListener("scroll", handleScroll);
     return () => wrapperDOM.removeEventListener("scroll", handleScroll);
   }, [loading]);
+
+  // 点击跳转到评论内容
+  const onShowComment = () => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
+    const comment = commentRef.current;
+    if (!comment) return;
+
+    const commentTop = comment.getBoundingClientRect().top;
+    // 判断是否展示评论信息
+    if (!isShowComment.current) {
+      // 展示评论信息
+      wrapper.scrollTo({
+        // wrapper.scrollTop 表示已经滚动的距离
+        top: commentTop - NAV_BAR_HEIGTH + wrapper.scrollTop,
+        behavior: "smooth",
+      });
+      isShowComment.current = true;
+    } else {
+      // 已经展示评论信息 返回页面顶部
+      wrapper.scrollTo(0, 0);
+      isShowComment.current = false;
+    }
+  };
+
+  // 收藏或取消收藏文章
+  const onCollected = async () => {
+    if (is_collected) {
+      // 取消收藏
+      await dispatch(uncollectArticle({ target: art_id }));
+    } else {
+      // 收藏
+      await dispatch(collectArticle({ target: art_id }));
+    }
+    Toast.show({
+      content: is_collected ? "已取消收藏" : "已收藏",
+      duration: 800,
+    });
+    await dispatch(getArticle(art_id));
+  };
+
+  // 点赞文章或取消点赞
+  const onLike = async () => {
+    if (attitude === 1) {
+      // 取消点赞
+      await dispatch(unlikeArticle({ target: art_id }));
+    } else {
+      // 点赞
+      await dispatch(likeArticle({ target: art_id }));
+    }
+    Toast.show({
+      content: attitude === 1 ? "已取消点赞" : "已点赞",
+      duration: 800,
+    });
+    await dispatch(getArticle(art_id));
+  };
 
   // 渲染文章详情
   const renderArticle = () => {
@@ -158,8 +227,18 @@ const Article = () => {
             </div>
           )}
         </NavBar>
-        {/* 文章详情 */}
+        {/* 文章详情和评论 */}
         {renderArticle()}
+        {/* 底部评论栏 */}
+        <CommentFooter
+          placeholder={comm_count === 0 ? "抢沙发" : "去评论"}
+          comm_count={comm_count}
+          onShowComment={onShowComment}
+          is_collected={is_collected}
+          onCollected={onCollected}
+          attitude={attitude}
+          onLike={onLike}
+        />
       </div>
     </div>
   );
