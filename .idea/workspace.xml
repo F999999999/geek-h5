@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="完成：文章详情-发表评论">
+    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="完成：文章详情-对评论内容进行点赞">
+      <change afterPath="$PROJECT_DIR$/src/pages/Article/components/Reply/index.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Article/components/Reply/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Article/components/CommentItem/index.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Article/components/CommentItem/index.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Article/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Article/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/articleSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/articleSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/article.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/article.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,14 +117,7 @@
       <workItem from="1655176680179" duration="77640000" />
       <workItem from="1655451853884" duration="155000" />
       <workItem from="1655452029285" duration="8074000" />
-      <workItem from="1655693795427" duration="7729000" />
-    </task>
-    <task id="LOCAL-00005" summary="新增：封装字体图标组件&amp;一些优化">
-      <created>1654739255684</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1654739255684</updated>
+      <workItem from="1655693795427" duration="13406000" />
     </task>
     <task id="LOCAL-00006" summary="完成：添加路由前置守卫">
       <created>1654740242038</created>
@@ -461,7 +455,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655697539590</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="完成：文章详情-对评论内容进行点赞">
+      <created>1655713757432</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1655713757432</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -492,7 +493,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="完成：个人信息-基础布局&amp;修改昵称和简介" />
     <MESSAGE value="完成：个人信息-修改性别" />
     <MESSAGE value="完成：个人信息-修改头像" />
     <MESSAGE value="完成：个人信息-修改生日" />
@@ -517,7 +517,8 @@
     <MESSAGE value="优化：文章详情-点赞收藏关注" />
     <MESSAGE value="完成：文章详情-获取评论列表并渲染" />
     <MESSAGE value="完成：文章详情-发表评论" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成：文章详情-发表评论" />
+    <MESSAGE value="完成：文章详情-对评论内容进行点赞" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成：文章详情-对评论内容进行点赞" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -34,11 +34,18 @@ import CommentFooter from "@/pages/Article/components/CommentFooter";
 import NoneComment from "@/components/NoneComment";
 import CommentItem from "@/pages/Article/components/CommentItem";
 import CommentInput from "@/pages/Article/components/CommentInput";
+import { ArtComment } from "@/types/article";
+import Reply from "@/pages/Article/components/Reply";
 
 dayjs.extend(localizedFormat);
 
 // 导航栏高度
 const NAV_BAR_HEIGTH = 45;
+
+type CommentReply = {
+  visible: boolean;
+  commentItem: ArtComment;
+};
 
 const Article = () => {
   const params = useParams();
@@ -77,6 +84,11 @@ const Article = () => {
   const isShowComment = useRef(false);
   // 文章评论弹出层展示或隐藏的状态
   const [showArticleComment, setShowArticleComment] = useState(false);
+  // 控制文章评论回复弹出层的展示或隐藏的状态
+  const [commentReply, setCommentReply] = useState<CommentReply>({
+    visible: false,
+    commentItem: {} as ArtComment,
+  });
 
   useEffect(() => {
     if (params.id) {
@@ -208,6 +220,41 @@ const Article = () => {
     }
   };
 
+  // 打开评论回复弹出层
+  const onCommentReplyShow = (commentItem: ArtComment) => {
+    setCommentReply({
+      visible: true,
+      commentItem,
+    });
+  };
+
+  // 关闭评论回复弹出层
+  const onCommentReplyHide = () =>
+    setCommentReply({
+      ...commentReply,
+      visible: false,
+    });
+
+  // 渲染评论回复的弹出层
+  const renderCommentReply = () => {
+    return (
+      <Popup
+        className="reply-popup"
+        position="right"
+        visible={commentReply.visible}
+      >
+        <div className="comment-popup-wrapper">
+          <Reply
+            onClose={onCommentReplyHide}
+            commentItem={commentReply.commentItem}
+            onReplyThumbUp={onThumbUp}
+            articleId={params.id ?? ""}
+          />
+        </div>
+      </Popup>
+    );
+  };
+
   // 渲染文章详情
   const renderArticle = () => {
     return (
@@ -270,6 +317,7 @@ const Article = () => {
                   {...item}
                   key={item.com_id}
                   onThumbUp={() => onThumbUp(item.com_id, item.is_liking)}
+                  onReplyShow={() => onCommentReplyShow(item)}
                 />
               ))}
 
@@ -347,6 +395,9 @@ const Article = () => {
 
       {/* 文章评论弹出层 */}
       {renderArticleComment()}
+
+      {/* 评论回复弹出层 */}
+      {renderCommentReply()}
     </div>
   );
 };
