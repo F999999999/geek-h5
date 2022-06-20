@@ -1,4 +1,5 @@
 // 文章详情数据类型
+
 export type ArticleDetail = {
   art_id: string;
   title: string;
@@ -88,3 +89,17 @@ export type GetMoreArticleCommentsParams = {
 };
 // 获取更多评论接口的响应类型
 export type GetMoreArticleCommentsResponse = ArticleComment;
+
+// 发表评论接口的参数类型
+export type AddArticleCommentParams = {
+  target: string;
+  content: string;
+  art_id?: string;
+};
+// 发表评论接口的响应类型
+export type AddArticleCommentResponse = {
+  com_id: string;
+  target: string;
+  art_id: string;
+  new_obj: ArtComment;
+};

@@ -12,6 +12,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/store";
 import {
+  addArticleComment,
   ARTICLE_FEATURE_KEY,
   collectArticle,
   followAuthor,
@@ -24,11 +25,12 @@ import {
   unlikeArticle,
 } from "@/store/articleSlice";
 import classNames from "classnames";
-import { InfiniteScroll, NavBar, Toast } from "antd-mobile";
+import { InfiniteScroll, NavBar, Popup, Toast } from "antd-mobile";
 import Icon from "@/components/Icon";
 import CommentFooter from "@/pages/Article/components/CommentFooter";
 import NoneComment from "@/components/NoneComment";
 import CommentItem from "@/pages/Article/components/CommentItem";
+import CommentInput from "@/pages/Article/components/CommentInput";
 
 dayjs.extend(localizedFormat);
 
@@ -70,6 +72,8 @@ const Article = () => {
   const [isShowNavAuthor, setIsShowNavAuthor] = useState(false);
   // 当前是否展示评论信息的 ref
   const isShowComment = useRef(false);
+  // 文章评论弹出层展示或隐藏的状态
+  const [showArticleComment, setShowArticleComment] = useState(false);
 
   useEffect(() => {
     if (params.id) {
@@ -247,6 +251,35 @@ const Article = () => {
     );
   };
 
+  // 隐藏文章评论弹出层
+  const onArticleCommentHide = () => setShowArticleComment(false);
+
+  // 发表评论
+  const onAddComment = async (value: string) => {
+    await dispatch(addArticleComment({ target: art_id, content: value }));
+    // 隐藏评论框
+    onArticleCommentHide();
+  };
+
+  // 渲染文章的评论弹出层
+  const renderArticleComment = () => {
+    return (
+      <Popup
+        bodyStyle={{
+          height: "100%",
+        }}
+        position="bottom"
+        visible={showArticleComment}
+        destroyOnClose
+      >
+        <CommentInput
+          onClose={onArticleCommentHide}
+          onAddComment={onAddComment}
+        />
+      </Popup>
+    );
+  };
+
   return (
     <div className={styles.root}>
       <div className="root-wrapper">
@@ -288,8 +321,12 @@ const Article = () => {
           onCollected={onCollected}
           attitude={attitude}
           onLike={onLike}
+          onShowArticleComment={() => setShowArticleComment(true)}
         />
       </div>
+
+      {/* 文章评论弹出层 */}
+      {renderArticleComment()}
     </div>
   );
 };

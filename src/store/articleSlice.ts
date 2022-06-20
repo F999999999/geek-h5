@@ -1,6 +1,8 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {http} from "@/utils";
 import {
+  AddArticleCommentParams,
+  AddArticleCommentResponse,
   ArticleComment,
   ArticleDetail,
   CollectArticleParams,
@@ -166,6 +168,18 @@ export const getMoreArticleComments = createAsyncThunk<
   }
 });
 
+// 发表文章评论
+export const addArticleComment = createAsyncThunk<
+  AddArticleCommentResponse,
+  AddArticleCommentParams
+>("article/addArticleComment", async (payload, thunkAPI) => {
+  try {
+    return await http.post("/comments", payload);
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e);
+  }
+});
+
 export const { actions, reducer: articleReducer } = createSlice({
   name: ARTICLE_FEATURE_KEY,
   initialState,
@@ -222,6 +236,11 @@ export const { actions, reducer: articleReducer } = createSlice({
             ...action.payload.results,
           ],
         };
+      })
+      // 发表文章评论
+      .addCase(addArticleComment.fulfilled, (state, action) => {
+        console.log("addArticleComment.fulfilled", action);
+        state.articleComments.results.unshift(action.payload.new_obj);
       });
   },
 });
