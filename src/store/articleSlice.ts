@@ -23,11 +23,11 @@ export const ARTICLE_FEATURE_KEY = "article";
 
 // 初始状态类型
 export type ArticleState = {
-  // 文章详情
   articleDetail: ArticleDetail;
 };
 // 初始状态
 export const initialState: ArticleState = {
+  // 文章详情
   articleDetail: {
     art_id: "",
     title: "",
@@ -146,9 +146,29 @@ export const { actions, reducer: articleReducer } = createSlice({
         state.articleDetail.is_collected = true;
       })
       // 取消收藏文章
-      .addCase(collectArticle.rejected, (state, action) => {
-        console.log("collectArticle.rejected", action);
+      .addCase(uncollectArticle.fulfilled, (state, action) => {
+        console.log("uncollectArticle.rejected", action);
         state.articleDetail.is_collected = false;
+      })
+      // 点赞文章
+      .addCase(likeArticle.fulfilled, (state, action) => {
+        console.log("likeArticle.fulfilled", action);
+        state.articleDetail.attitude = 1;
+      })
+      // 取消点赞文章
+      .addCase(unlikeArticle.fulfilled, (state, action) => {
+        console.log("unlikeArticle.fulfilled", action);
+        state.articleDetail.attitude = -1;
+      })
+      // 关注作者
+      .addCase(followAuthor.fulfilled, (state, action) => {
+        console.log("followAuthor.fulfilled", action);
+        state.articleDetail.is_followed = true;
+      })
+      // 取消关注作者
+      .addCase(unfollowAuthor.fulfilled, (state, action) => {
+        console.log("unfollowAuthor.fulfilled", action);
+        state.articleDetail.is_followed = false;
       });
   },
 });

@@ -66,7 +66,6 @@ const Article = () => {
   // 当前是否展示评论信息的 ref
   const isShowComment = useRef(false);
 
-  // 文章数据
   useEffect(() => {
     params.id && dispatch(getArticle(params.id));
     setLoading(false);
@@ -127,7 +126,6 @@ const Article = () => {
       content: is_collected ? "已取消收藏" : "已收藏",
       duration: 800,
     });
-    await dispatch(getArticle(art_id));
   };
 
   // 点赞或取消点赞文章
@@ -143,7 +141,6 @@ const Article = () => {
       content: attitude === 1 ? "已取消点赞" : "已点赞",
       duration: 800,
     });
-    await dispatch(getArticle(art_id));
   };
 
   // 关注或取消关注作者
@@ -159,7 +156,6 @@ const Article = () => {
       content: is_followed ? "已取消关注" : "已关注",
       duration: 800,
     });
-    await dispatch(getArticle(art_id));
   };
 
   // 渲染文章详情
