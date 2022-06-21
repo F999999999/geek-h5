@@ -32,6 +32,7 @@ export const routes: RouterBody[] = [
       { path: "articles/:id", element: lazyLoad("pages/Article") },
       { path: "search", element: lazyLoad("pages/Search") },
       { path: "search/result", element: lazyLoad("pages/Search/Result") },
+      { path: "chat", element: lazyLoad("pages/Chat") },
     ],
   },
   { path: "*", element: lazyLoad("pages/NotFound") },

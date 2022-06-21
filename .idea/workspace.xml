@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="完成：文章详情-回复评论时点赞">
-      <change afterPath="$PROJECT_DIR$/src/pages/Question/index.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Video/index.module.scss" afterDir="false" />
+    <list default="true" id="b0d9e133-b135-4f68-b98a-18eec335f6f5" name="变更" comment="完成：问答和视频的模板渲染">
+      <change afterPath="$PROJECT_DIR$/src/pages/Chat/index.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Chat/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Question/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Question/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Video/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Video/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/route/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/route/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,9 +80,9 @@
       <recent name="D:\FullStack\Github\geek-h5\src\components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\FullStack\Github\geek-h5\src\pages" />
       <recent name="D:\FullStack\Github\geek-h5\src\pages\Home\components" />
       <recent name="D:\FullStack\Github\geek-h5\src\pages\Home" />
-      <recent name="D:\FullStack\Github\geek-h5\src\pages" />
       <recent name="D:\FullStack\Github\geek-h5\src\components" />
       <recent name="D:\FullStack\Github\geek-h5\src\pages\Profile\Edit\components" />
     </key>
@@ -117,14 +118,8 @@
       <workItem from="1655176680179" duration="77640000" />
       <workItem from="1655451853884" duration="155000" />
       <workItem from="1655452029285" duration="8074000" />
-      <workItem from="1655693795427" duration="22434000" />
-    </task>
-    <task id="LOCAL-00008" summary="完成：初始化配置 Redux Toolkit">
-      <created>1654744291854</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1654744291854</updated>
+      <workItem from="1655693795427" duration="23277000" />
+      <workItem from="1655771733843" duration="831000" />
     </task>
     <task id="LOCAL-00009" summary="完成：封装 axios 请求和一些工具函数">
       <created>1654764955315</created>
@@ -462,7 +457,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655729896749</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="完成：问答和视频的模板渲染">
+      <created>1655770600776</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1655770600776</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -493,7 +495,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="完成：个人信息-修改生日" />
     <MESSAGE value="完成：个人信息-退出登录" />
     <MESSAGE value="优化：个人信息-修改简介输入框的样式" />
     <MESSAGE value="修复：个人信息-修改昵称和简介切换时默认值不更新" />
@@ -518,7 +519,8 @@
     <MESSAGE value="完成：文章详情-对评论内容进行点赞" />
     <MESSAGE value="完成：文章详情-展示评论的回复&amp;对回复进行评论" />
     <MESSAGE value="完成：文章详情-回复评论时点赞" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成：文章详情-回复评论时点赞" />
+    <MESSAGE value="完成：问答和视频的模板渲染" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成：问答和视频的模板渲染" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
